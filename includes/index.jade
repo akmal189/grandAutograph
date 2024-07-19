@@ -145,8 +145,8 @@ include _header.jade
                         </div>
                     </div>
                     <div class="slider-nav">
-                        <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
                 </div>
                 <div class="interiors-block__left-text">В Grand Autograph вас ждет 175 номеров, каждый из которых – воплощение роскоши и комфорта. Выбирайте номер по душе: с собственной террасой, где можно наслаждаться закатом, или с захватывающим видом на Оперный театр. В каждом номере вас ждет изысканный декор, просторные ванные комнаты и роскошное постельное белье из натуральных материалов. Гостям мы предлагаем круглосуточный рум-сервис и возможность позднего выезда. Отдыхайте, наслаждаясь каждым моментом своего пребывания в Grand Autograph и не беспокоясь о мелочах.</div>
@@ -168,8 +168,8 @@ include _header.jade
                         </div>
                     </div>
                     <div class="slider-nav">
-                        <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
                 </div>
                 <div class="interiors-block__right-text">
@@ -234,7 +234,10 @@ include _header.jade
 <section class="announces-block block-padding">
     <div class="announces-block__inner">
         <div class="announces-block__header">
-            <div class="announces-block__nav"></div>
+            <div class="announces-block__nav">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
             <div class="announces-block__btn">
                 <a href="#" class="button button-primary-bordered">Все события</a>
             </div>
@@ -245,27 +248,94 @@ include _header.jade
                 <div class="swiper-wrapper">
                     <div class="announces-block__slider-item swiper-slide">
                         <div class="item-header">
-                            <div class="item-btn"></div>
-                            <div class="item-date"></div>
+                            <div class="item-btn">
+                                <span></span>
+                            </div>
+                            <div class="item-date">12-25 июля</div>
                         </div>
-                        <div class="item-title"></div>
-                        <div class="item-image"></div>
+                        <div class="item-title">Винный ужин</div>
+                        <div class="item-body">
+                            <img src="include/images/announce_sl1.png" alt="announce_sl1">
+                        </div>
+                    </div>
+                    <div class="announces-block__slider-item swiper-slide with_line">
+                        <div class="item-header">
+                            <div class="item-btn">
+                                <span></span>
+                            </div>
+                            <div class="item-date">11-14 июля</div>
+                        </div>
+                        <div class="item-title">Мероприятие в честь дня рождения отеля</div>
+                        <div class="item-body">
+                            <img src="include/images/announce_sl2.png" alt="announce_sl2">
+                        </div>
                     </div>
                     <div class="announces-block__slider-item swiper-slide">
                         <div class="item-header">
-                            <div class="item-btn"></div>
-                            <div class="item-date"></div>
+                            <div class="item-btn">
+                                <span></span>
+                            </div>
+                            <div class="item-date">12-25 июля</div>
                         </div>
-                        <div class="item-title"></div>
-                        <div class="item-image"></div>
+                        <div class="item-title">Винный ужин</div>
+                        <div class="item-body">
+                            <img src="include/images/announce_sl1.png" alt="announce_sl1">
+                        </div>
                     </div>
-                    <div class="announces-block__slider-item swiper-slide">
-                        <div class="item-header">
-                            <div class="item-btn"></div>
-                            <div class="item-date"></div>
-                        </div>
-                        <div class="item-title"></div>
-                        <div class="item-image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurants-block block-padding">
+    <div class="restaurants-block__inner">
+        <div class="restaurants-block__title block-title">Рестораны</div>
+        <div class="restaurants-block__pearl"></div>
+        <div class="restaurants-block__body">
+            <div class="restaurants-block__tob-blocks">
+                <div class="restaurants-block__top-left">
+                    <a href="#">
+                        <span class="image">
+                            <img src="" alt="">
+                        </span>
+                        <span class="text">
+                            <span class="desc"></span>
+                            <span class="title"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="restaurants-block__top-right">
+                    <div class="title"></div>
+                    <a href="#">
+                        <span class="image">
+                            <img src="" alt="">
+                        </span>
+                        <span class="text">
+                            <span class="desc"></span>
+                            <span class="title"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="restaurants-block__middle">
+                    <div class="restaurants-block__middle-left"></div>
+                    <div class="restaurants-block__middle-right">
+                        <a href="#">
+                            <span class="image">
+                                <img src="" alt="">
+                            </span>
+                            <span class="text">
+                                <span class="desc"></span>
+                                <span class="title"></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="restaurants-block__bottom">
+                    <div class="restaurants-block__bottom-slider"></div>
+                    <div class="restaurants-block__bottom-right">
+                        <div class="title"></div>
+                        <div class="text"></div>
                     </div>
                 </div>
             </div>

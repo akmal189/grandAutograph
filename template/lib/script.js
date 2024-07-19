@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         interiorsBlockFunctions: function() {
             const INTER_LEFT = new Swiper('.interiors-block__left-slider .swiper', {
                 slidesPerView: 1,
-                loop: false,
+                loop: true,
                 effect: 'slide',
                 speed: 1000,
                 spaceBetween: 0,
@@ -78,6 +78,41 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         },
         // INTERIORS BLOCK END
+        
+        // ANNOUNCES BLOCK BEGIN
+        announcesBlockFunctions: function() {
+            const ANNOUNCES_SLIDER = new Swiper('.announces-block__slider .swiper', {
+                slidesPerView: 2,
+                loop: true,
+                effect: 'slide',
+                speed: 1000,
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: '.announces-block .swiper-button-next',
+                    prevEl: '.announces-block .swiper-button-prev',
+                }
+            });
+
+            function setEqualHeight() {
+                var items = document.querySelectorAll('.announces-block__slider-item .item-title');
+                items.forEach(function(item) {
+                    item.style.height = 'auto';
+                });
+                var maxHeight = 0;
+                items.forEach(function(item) {
+                    if (item.offsetHeight > maxHeight) {
+                        maxHeight = item.offsetHeight;
+                    }
+                });
+                items.forEach(function(item) {
+                    item.style.height = maxHeight + 'px';
+                });
+            }
+    
+            window.addEventListener('load', setEqualHeight);
+            window.addEventListener('resize', setEqualHeight);
+        },
+        // ANNOUNCES BLOCK END
 
         // BLOCK ANIMATIONS BEGIN
         blockAnimations: function () {
@@ -141,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let parallaxElements3 = document.querySelectorAll('.citys-pearl .big-pearl img');
                 for (let i = 0; i < parallaxElements3.length; i++) {
                     let speed3 = 3; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset3 = document.querySelector('.citys-pearl').getBoundingClientRect().y / speed3;
+                    let yOffset3 = document.querySelector('.citys-pearl').getBoundingClientRect().y / speed3 + 250;
                     parallaxElements3[i].style.transform = 'translateY(' + yOffset3 + 'px)';
                 }
                 let parallaxElements4 = document.querySelectorAll('.congress-block .congress-block__top-pearl');

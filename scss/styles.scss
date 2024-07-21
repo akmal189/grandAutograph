@@ -623,11 +623,11 @@ p {
 
 /* SITE FOOTER BEGIN */
 .site-footer {
-    padding-top: clamp(2.25rem, -1.25rem + 8.3333vw, 4.375rem);
-    padding-bottom: clamp(2.25rem, -1.25rem + 8.3333vw, 3.125rem);
-    background: url('../include/images/footer_bg.png') 50%/cover no-repeat rgb(var(--primary));
+    
     &__inner {
-
+        padding-top: clamp(2.25rem, -1.25rem + 8.3333vw, 4.375rem);
+        padding-bottom: clamp(2.25rem, -1.25rem + 8.3333vw, 3.125rem);
+        background: url('../include/images/footer_bg.png') 50%/cover no-repeat rgb(var(--primary));
     }
     &__logo {
         margin-bottom: clamp(2.25rem, -1.25rem + 8.3333vw, 4.375rem);
@@ -813,6 +813,37 @@ p {
                 transform: scale(1.2);
             }
         }
+    }
+    &__bottom {
+        background: rgb(var(--accent-color));
+        padding-top: 11px;
+        padding-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgb(var(--white));
+        font-size: clamp(0.75rem, -1.25rem + 8.3333vw, 1rem);
+        font-weight: normal;
+        line-height: 20px;
+    }
+    &__bottom-design {
+            
+    }
+    &__bottom-center {
+        display: flex;
+        align-items: center;
+        gap: 10px clamp(3.25rem, -1.25rem + 8.3333vw, 6.25rem);
+    }
+    &__bottom-widget {
+
+    }
+    &__bottom-group {
+        b {
+            font-weight: 800;
+        }
+    }
+    &__bottom-copy {
+
     }
 }
 /* SITE FOOTER END */
@@ -1292,3 +1323,58 @@ p {
     }
 }
 /* ANNOUNCES BLOCK END */
+
+/* POPUP FORM BEGIN */
+.popup-form {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    overflow: auto;
+    display: flex;
+    transition: all .5s ease;
+    background: rgba(var(--titles-color), .91);
+    opacity: 0;
+    visibility: hidden;
+    &.opened {
+        opacity: 1;
+        visibility: visible;
+    }
+    &__inner {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        width: 100%;
+        max-width: 959px;
+        padding: 24px 60px 60px;
+        padding-right: 120px;
+    }
+    &__closer {
+        position: absolute;
+        top: 60px;
+        right: 130px;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        cursor: pointer;
+        transition: all .5s ease;
+    }
+    &__title {
+
+    }
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: clamp(1rem, -1.25rem + 8.3333vw, 1.25rem);
+    }
+    &__form-field {
+        width: calc(33.3% - (clamp(1rem, -1.25rem + 8.3333vw, 1.25rem)/3));
+        &:last-child {
+            width: 100%;
+        }
+    }
+}
+/* POPUP FORM END */

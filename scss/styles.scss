@@ -1820,6 +1820,7 @@ p {
         margin-bottom: clamp(3.25rem, -1.25rem + 8.3333vw, 4.375rem);
         @media all and (max-width: 980px) {
             font-size: 14px;
+            margin-bottom: 30px;
         }
         p {
             margin: clamp(1rem, -1.25rem + 8.3333vw, 3.05rem) 0;
@@ -1843,8 +1844,6 @@ p {
         }
         @media all and (max-width: 550px) {
             display: block;
-            margin-bottom: 30px;
-            margin-right: -30px;
         }
         * {
             font-family: inherit;

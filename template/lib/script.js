@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if(window.outerWidth <= 767) {
                     document.querySelector('.main-first__mobile-wr').append(document.querySelector('.main-first__video-btn'))
                     document.querySelector('.main-first__mobile-wr').append(document.querySelector('.main-first__right-title'))
+                    document.querySelector('.interiors-block__body').append(document.querySelector('.interiors-block__left-bigText'))
                 }
             }
 

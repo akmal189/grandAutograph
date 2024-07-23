@@ -225,6 +225,11 @@ p {
     transition: all .5s ease;
     &.fixed {
         background: rgb(var(--accent-color));
+        & ~ .burger-block {
+            @media all and (max-width: 980px) {
+                padding-top: 70px;
+            }
+        }
         .site-header__inner {
             padding: 1rem 0;
             @media all and (max-width: 1260px) {
@@ -232,11 +237,6 @@ p {
                 .site-header__logo img {
                     max-width: 137px;
                 }
-            }
-        }
-        & ~ .burger-block {
-            @media all and (max-width: 980px) {
-                padding-top: 70px;
             }
         }
     }
@@ -352,6 +352,9 @@ p {
             }
             @media all and (max-width: 1260px) {
                 max-width: 197px;
+            }
+            @media all and (max-width: 550px) {
+                max-width: 137px;
             }
         }
     }
@@ -555,6 +558,9 @@ p {
     left: 0;
     z-index: 10;
     padding-top: clamp(9rem, 1.75rem + 8.3333vw, 11.25rem);
+    @media all and (max-width: 980px) {
+        padding-top: 120px;
+    }
     &.opened {
         transform: translateY(0);
     }
@@ -784,6 +790,12 @@ p {
             @media all and (max-width: 1500px) {
                 max-width: 291px;
             }
+            @media all and (max-width: 980px) {
+                max-width: 244px;
+            }
+            @media all and (max-width: 550px) {
+                max-width: 190px;
+            }
         }
     }
     &__menu {
@@ -845,9 +857,17 @@ p {
                     gap: 10px;
                     @media all and (max-width: 980px) {
                         display: none;
+                        margin: 20px;
+                        margin-right: 0;
+                        &.opened {
+                            display: flex;
+                        }
                     }
                     li {
                         width: 100%;
+                        @media all and (max-width: 980px) {
+                            padding-bottom: 10px;
+                        }
                         a {
                             font-weight: normal;
                             font-size: clamp(0.875rem, -8.25rem + 8.3333vw, 1rem);
@@ -864,6 +884,27 @@ p {
                 @media all and (max-width: 980px) {
                     transform: none !important;
                     opacity: 1 !important;
+                    &.hasChild {
+                        > a {
+                            position: relative;
+                            padding-right: 45px;
+                            width: 100%;
+                            .arrow {
+                                position: absolute;
+                                bottom: 0;
+                                top: 0;
+                                right: 0;
+                                width: 40px;
+                                cursor: pointer;
+                                transition: all 0.5s ease;
+                                background: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 1L7.70711 6.29289C7.31658 6.68342 6.68342 6.68342 6.29289 6.29289L1 1' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E%0A") top 50% right 0 no-repeat;
+                                &.active {
+                                    transform: rotate(180deg);
+                                    background-position: left center;
+                                }
+                            }
+                        }
+                    }
                 }
                 &.last-item {
                     @media all and (max-width: 980px) {
@@ -1021,6 +1062,10 @@ p {
             flex-direction: column;
             align-items: flex-start;
             font-size: 14px;
+            gap: 10px;
+        }
+        @media all and (max-width: 550px) {
+            padding: 30px 20px;
         }
     }
     &__bottom-design {
@@ -1039,6 +1084,8 @@ p {
         @media all and (max-width: 550px) {
             flex-direction: column;
             align-items: flex-start;
+            gap: 10px;
+            order: -1;
         }
     }
     &__bottom-widget {
@@ -1068,6 +1115,9 @@ p {
     @media all and (max-width: 767px) {
         min-height: 788px;
     }
+    @media all and (max-width: 420px) {
+        min-height: 748px;
+    }
     &__inner {
         display: flex;
         height: 100%;
@@ -1088,6 +1138,27 @@ p {
             right: 40px;
             top: 184px;
         }
+        @media all and (max-width: 768px) {
+            top: 194px;
+        }
+        @media all and (max-width: 767px) {
+            top: auto;
+            bottom: 31vw;
+        }
+        @media all and (max-width: 640px) {
+            bottom: 36vw;
+        }
+        @media all and (max-width: 550px) {
+            bottom: 43vw;
+            left: 20px;
+            right: 20px;
+        }
+        @media all and (max-width: 480px) {
+            bottom: 45vw;
+        }
+        @media all and (max-width: 420px) {
+            bottom: 40vw;
+        } 
         &.active {
             opacity: 1;
         }
@@ -1103,6 +1174,16 @@ p {
             bottom: 15px;
             left: 310px;
             z-index: 1;
+            @media all and (max-width: 980px) {
+                top: 50%;
+                transform: translate(-5px, -50%);
+                margin-top: 13px;
+                bottom: auto;
+            }
+            @media all and (max-width: 470px) {
+                transform: translate(-7px, -50%);
+                margin-top: 10px;
+            }
         }
         .main_svg {
             max-width: 100%;
@@ -1127,6 +1208,10 @@ p {
         @media all and (max-width: 767px) {
             width: 100%;
         }
+        @media all and (max-width: 550px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
     }
     &__text {
         font-size: clamp(1rem, -7rem + 8.3333vw, 1.25rem);
@@ -1135,6 +1220,14 @@ p {
         font-weight: 300;
         @media all and (max-width: 1260px) {
             font-size: 14px;
+        }
+    }
+    &__mobile-wr {
+        @media all and (max-width: 767px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0;
         }
     }
     &__image {
@@ -1149,6 +1242,18 @@ p {
         opacity: 0;
         @media all and (max-width: 1500px) {
             padding-right: 10px;
+        }
+        @media all and (max-width: 767px) {
+            margin-bottom: -26vw;
+        }
+        @media all and (max-width: 640px) {
+            margin-bottom: -17vw;
+        }
+        @media all and (max-width: 550px) {
+            margin-bottom: -6vw;
+        }
+        @media all and (max-width: 480px) {
+            margin-bottom: 0;
         }
         &.active {
             opacity: 1;
@@ -1184,6 +1289,11 @@ p {
             left: calc(50% + 21vw);
             bottom: auto;
             background-image: url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.0178 9.19851L0.410734 17.6319L0.410735 0.765101L15.0178 9.19851Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+        @media all and (max-width: 767px) {
+            position: static;
+            width: 112px;
+            height: 112px;
         }
         &:hover {
             background-color: rgb(var(--primary));
@@ -1249,10 +1359,11 @@ p {
             max-width: 250px;
         }
         @media all and (max-width: 767px) {
-            right: 40px;
+            position: static;
         }
         @media all and (max-width: 550px) {
             right: 20px;
+            max-width: 220px;
         }
     }
 }
@@ -1268,6 +1379,9 @@ p {
     }
     @media all and (max-width: 1260px) {
         margin-top: -65px;
+    }
+    @media all and (max-width: 550px) {
+        margin-top: -36px;
     }
     &__inner {
         background: rgb(var(--grey));
@@ -1359,6 +1473,8 @@ p {
         position: relative;
     }
     &__title {
+        position: relative;
+        z-index: 1;
         @media all and (max-width: 1260px) {
             max-width: 300px;
         }
@@ -1724,6 +1840,11 @@ p {
         font-family: 'rmls-regular';
         @media all and (max-width: 1024px) {
             display: none;
+        }
+        @media all and (max-width: 550px) {
+            display: block;
+            margin-bottom: 30px;
+            margin-right: -30px;
         }
         * {
             font-family: inherit;
@@ -2158,7 +2279,8 @@ p {
 
     }
     &__title {
-
+        position: relative;
+        z-index: 1;
     }
     &__pearl {
         position: absolute;
@@ -2185,6 +2307,25 @@ p {
             position: relative;
             font-size: 0;
             color: rgb(var(--bar-name-color));
+            .logo {
+                display: none;
+                @media all and (max-width: 1500px) {
+                    display: block;
+                    position: absolute;
+                    pointer-events: none;
+                    z-index: 1;
+                    top: 40px;
+                    left: 40px;
+                    @media all and (max-width: 1260px) {
+                        top: 30px;
+                        left: 30px;
+                    }
+                    @media all and (max-width: 550px) {
+                        left: 36px;
+                        top: 36px;
+                    }
+                }
+            }
             .image {
                 display: block;
                 position: relative;
@@ -2313,6 +2454,7 @@ p {
         @media all and (max-width: 550px) {
             flex-direction: column;
             gap: 20px;
+            position: relative;
         }
     }
     &__middle-left {
@@ -2396,6 +2538,22 @@ p {
         @media all and (max-width: 550px) {
             width: 100%;
             padding: 0;
+        }
+    }
+    &__mobile-pearls {
+        display: none;
+        @media all and (max-width: 550px) {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            right: -20px;
+            > div {
+                will-change: transform;
+                transition: all 0.5s ease;
+                font-size: 0;
+            }
         }
     }
     &__bottom {
@@ -2494,6 +2652,9 @@ p {
 .map-block {
     min-height: 125vh;
     display: flex;
+    @media all and (max-width: 1260px) {
+        min-height: 0;
+    }
     &__inner {
         position: relative;
         display: flex;

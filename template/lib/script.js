@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     e.target.classList.toggle('active')
                     document.querySelector('.site-header__langs-list').classList.toggle('opened')
                 })
+                if(window.outerWidth <= 767) {
+                    document.querySelector('.main-first__mobile-wr').append(document.querySelector('.main-first__video-btn'))
+                    document.querySelector('.main-first__mobile-wr').append(document.querySelector('.main-first__right-title'))
+                }
             }
 
             document.querySelector('.first-letter').style.width = document.querySelector('.first-letter_in').getBoundingClientRect().width;
@@ -281,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
 
-            const blocks = document.querySelectorAll(".map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .congress-block__gallery-item, .block-title, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
+            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .congress-block__gallery-item, .block-title, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
             blocks.forEach((block) => {
                 gsap.set(block, { opacity: 0, y: 100 });
 
@@ -358,8 +362,32 @@ document.addEventListener('DOMContentLoaded', function () {
                     let yOffset10 = document.querySelector('.interiors-block').getBoundingClientRect().y / speed10;
                     parallaxElements10[i].style.transform = 'translateY(' + yOffset10 + 'px)';
                 }
+                let parallaxElements11 = document.querySelectorAll('.restaurants-block__mobile-pearls .small');
+                for (let i = 0; i < parallaxElements11.length; i++) {
+                    let speed11 = 2; // Скорость параллакса. Можно изменить по своему усмотрению.
+                    let yOffset11 = document.querySelector('.restaurants-block__middle').getBoundingClientRect().y / speed11;
+                    parallaxElements11[i].style.transform = 'translateY(' + yOffset11 + 'px)';
+                }
+                let parallaxElements12 = document.querySelectorAll('.restaurants-block__mobile-pearls .big');
+                for (let i = 0; i < parallaxElements12.length; i++) {
+                    let speed12 = 4; // Скорость параллакса. Можно изменить по своему усмотрению.
+                    let yOffset12 = document.querySelector('.restaurants-block__middle').getBoundingClientRect().y / speed12;
+                    parallaxElements12[i].style.transform = 'translateY(' + yOffset12 + 'px)';
+                }
             });
         },
         // BLOCK ANIMATIONS END
+
+        // FOOTER SCRIPTS BEGIN
+        footerScripts: function() {
+            document.querySelectorAll('.site-footer__menu ul li.hasChild > a .arrow').forEach((item) => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.target.classList.toggle('active')
+                    e.target.closest('li').querySelector('ul').classList.toggle('opened')
+                });
+            })
+        }
+        // FOOTER SCRIPTS END
     }
 }())

@@ -1115,7 +1115,7 @@ p {
     @media all and (max-width: 767px) {
         min-height: 788px;
     }
-    @media all and (max-width: 420px) {
+    @media all and (max-width: 440px) {
         min-height: 748px;
     }
     &__inner {
@@ -1156,7 +1156,7 @@ p {
         @media all and (max-width: 480px) {
             bottom: 45vw;
         }
-        @media all and (max-width: 420px) {
+        @media all and (max-width: 440px) {
             bottom: 40vw;
         } 
         &.active {
@@ -1184,6 +1184,16 @@ p {
                 transform: translate(-7px, -50%);
                 margin-top: 10px;
             }
+        }
+        .main_svg_last_word {
+            opacity: 0;
+        }
+        .last-word {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
         }
         .main_svg {
             max-width: 100%;
@@ -1253,7 +1263,7 @@ p {
             margin-bottom: -6vw;
         }
         @media all and (max-width: 480px) {
-            margin-bottom: 0;
+            margin-bottom: -5px;
         }
         &.active {
             opacity: 1;

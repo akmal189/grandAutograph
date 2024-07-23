@@ -43,11 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.first-letter').style.width = document.querySelector('.first-letter_in').getBoundingClientRect().width;
             document.querySelector('.v-letter').style.width = document.querySelector('.v-letter_in').getBoundingClientRect().width;
             document.querySelector('.v-letter').style.left = document.querySelector('.v-letter_in').getBoundingClientRect().width+document.querySelector('.second-letter_in').getBoundingClientRect().width+10;
+            document.querySelector('.last-word').style.width = document.querySelector('.main_svg_last_word').getBoundingClientRect().width;
 
             window.addEventListener('resize', () => {
                 document.querySelector('.first-letter').style.width = document.querySelector('.first-letter_in').getBoundingClientRect().width;
                 document.querySelector('.v-letter').style.width = document.querySelector('.v-letter_in').getBoundingClientRect().width;
                 document.querySelector('.v-letter').style.left = document.querySelector('.v-letter_in').getBoundingClientRect().width+document.querySelector('.second-letter_in').getBoundingClientRect().width+10;
+                document.querySelector('.last-word').style.width = document.querySelector('.main_svg_last_word').getBoundingClientRect().width;
             });
 
             document.addEventListener('scroll', () => {

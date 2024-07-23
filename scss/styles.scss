@@ -2307,6 +2307,7 @@ p {
             position: relative;
             font-size: 0;
             color: rgb(var(--bar-name-color));
+            display: block;
             .logo {
                 display: none;
                 @media all and (max-width: 1500px) {

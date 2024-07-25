@@ -1,5 +1,5 @@
-</div>
-<footer class="site-footer">
+
+<footer class="site-footer" data-scroll-section>
     <div class="site-footer__inner block-padding">
         <div class="site-footer__logo">
             <a href="/">
@@ -180,14 +180,15 @@
         <div class="site-footer__bottom-copy">© 2024 Grand Autograph, Все права защищены</div>
     </div>
 </footer>
+</div>
 <div class="burger-block">
     <div class="burger-block__inner block-padding">
         <div class="burger-block__top">
             <div class="burger-block__menu">
                 <nav>
                     <ul>
-                        <li><a href="#">Отель</a></li>
-                        <li><a href="#">Номера</a></li>
+                        <li><a href="#" data-img="include/images/burger_image.png">Отель</a></li>
+                        <li><a href="#" data-img="include/images/main-video-poster.png">Номера</a></li>
                         <li><a href="#">Конгресс-холл</a></li>
                         <li><a href="#">Ресторан и бар</a></li>
                         <li><a href="#">Услуги</a></li>
@@ -197,7 +198,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="burger-block__image">
+            <div class="burger-block__image v_hidden">
                 <img src="include/images/burger_image.png" alt="burger_image">
             </div>
         </div>
@@ -270,8 +271,8 @@
                     <div class="popup-form__form-field">
                         <input type="text" placeholder="Введите адрес">
                     </div>
-                    <div class="popup-form__form-field">
-                        <button class="button button-white">Отправить</button>
+                    <div class="popup-form__form-field button-field">
+                        <button class="button button-white"><span>Отправить</span></button>
                     </div>
                     <div class="popup-form__form-field">Нажимая кнопку, вы даёте согласие на обработку ваших персональных данных</div>
                 </form>
@@ -320,14 +321,16 @@
             <img src="include/images/popup_map_image.png" alt="popup_map_image">
         </div>
         <div class="popup-map__btn">
-            <a href="#" class="button button-primary">Построить маршрут</a>
+            <a href="#" class="button button-primary"><span>Построить маршрут</span></a>
         </div>
     </div>
 </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
 <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.min.js"></script>
 <script src="https://unpkg.com/imask"></script>

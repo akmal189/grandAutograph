@@ -1,6 +1,6 @@
 include _header.jade
 
-<section class="main-first">
+<section class="main-first" data-scroll-section>
     <div class="main-first__inner block-width">
         <div class="main-first__left">
             <div class="main-first__text">Grand Autograph - единственный пятизвездочный отель в&nbsp;Новосибирске. Мы предлагаем незабываемый отдых с&nbsp;круглосуточным обслуживанием в номерах и первоклассный сервис от гостиничного оператора с мировым именем</div>
@@ -10,7 +10,9 @@ include _header.jade
             </div>
         </div>
         <div class="main-first__right">
-            <div class="main-first__video-btn"></div>
+            <div class="main-first__video-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29" fill="none"><path d="M24.9367 14.5825L0.158225 28.8883L0.158226 0.2766L24.9367 14.5825Z" fill="white"/></svg>
+            </div>
             <div class="main-first__video-poster">
                 <img src="include/images/main-video-poster.png" alt="include/images/main-video-poster">
             </div>
@@ -52,7 +54,7 @@ include _header.jade
     </div>
 </section>
 
-<section class="reservation-block block-padding">
+<section class="reservation-block block-padding" data-scroll-section>
     <div class="reservation-block__inner block-width">
         <div class="reservation-block__title">Бронирование номеров</div>
         <div class="reservation-block__form">
@@ -75,13 +77,13 @@ include _header.jade
                 </div>
             </div>
             <div class="reservation-block__form-item item-button">
-                <button class="button button-primary">Найти номер</button>
+                <button class="button button-primary"><span>Найти номер</span></button>
             </div>
         </div>
     </div>
 </section>
 
-<section class="citys-pearl block-padding">
+<section class="citys-pearl block-padding" data-scroll-section>
     <div class="citys-pearl__inner block-width">
         <div class="citys-pearl__title block-title">Жемчужина города</div>
         <div class="citys-pearl__text">У нас есть все необходимое, чтобы шикарно провести время как гостям города, так и жителям Новосибирска: шикарные номера с видом на&nbsp;центр города и Оперный театр, закрытый бассейн, тренажерный зал&nbsp;и SPA, а также 2 ресторана с авторской кухней</div>
@@ -141,7 +143,7 @@ include _header.jade
     </div>
 </section>
 
-<section class="interiors-block block-padding">
+<section class="interiors-block block-padding" data-scroll-section>
     <div class="interiors-block__inner">
         <div class="interiors-block__title block-title">Интерьеры и номера</div>
         <div class="interiors-block__body">
@@ -150,13 +152,19 @@ include _header.jade
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <div class="slider-item swiper-slide">
-                                <a href="include/images/inter_left_sl1.png">
+                                <a href="include/images/inter_left_sl1.png" class="slider-item__image">
                                     <img src="include/images/inter_left_sl1.png" alt="inter_left_sl1">
+                                </a>
+                                <a href="#" class="slider-item__btn button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12.4783 0.760864V10.5217L11.5217 10.5217V0.760864H12.4783ZM11.5217 11.5217L12.4783 11.5217V12.4783L11.5217 12.4783V11.5217ZM13.4783 12.4783V11.5217H23.2391V12.4783H13.4783ZM11.5217 13.4783L12.4783 13.4783V23.2391H11.5217V13.4783ZM10.5217 11.5217V12.4783H0.760864L0.760864 11.5217H10.5217Z" fill="#9C163A" stroke="white"/></svg>
                                 </a>
                             </div>
                             <div class="slider-item swiper-slide">
-                                <a href="include/images/inter_left_sl1.png">
+                                <a href="include/images/inter_left_sl1.png" class="slider-item__image">
                                     <img src="include/images/inter_left_sl1.png" alt="inter_left_sl1">
+                                </a>
+                                <a href="#" class="slider-item__btn button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12.4783 0.760864V10.5217L11.5217 10.5217V0.760864H12.4783ZM11.5217 11.5217L12.4783 11.5217V12.4783L11.5217 12.4783V11.5217ZM13.4783 12.4783V11.5217H23.2391V12.4783H13.4783ZM11.5217 13.4783L12.4783 13.4783V23.2391H11.5217V13.4783ZM10.5217 11.5217V12.4783H0.760864L0.760864 11.5217H10.5217Z" fill="#9C163A" stroke="white"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -173,7 +181,7 @@ include _header.jade
                 </div>
                 <div class="interiors-block__mobile">
                     <div class="interiors-block__gallery-btn">
-                        <span class="button button-primary-bordered">Смотреть номера</span>
+                        <span class="button button-primary-bordered"><span>Смотреть номера</span></span>
                     </div>
                     <div class="interiors-block__pearl">
                         <img src="include/images/interiors_bl_pearl.png" alt="interiors_bl_pearl">
@@ -207,7 +215,7 @@ include _header.jade
     </div>
 </section>
 
-<section class="congress-block block-padding">
+<section class="congress-block block-padding" data-scroll-section>
     <div class="congress-block__inner">
         <div class="congress-block__title block-title">Конгресс-холл</div>
         <div class="congress-block__top-pearl">
@@ -256,7 +264,7 @@ include _header.jade
     </div>
 </section>
 
-<section class="announces-block block-padding">
+<section class="announces-block block-padding" data-scroll-section>
     <div class="announces-block__inner">
         <div class="announces-block__header">
             <div class="announces-block__nav">
@@ -264,7 +272,7 @@ include _header.jade
                 <div class="swiper-button-next"></div>
             </div>
             <div class="announces-block__btn">
-                <a href="#" class="button button-primary-bordered">Все события</a>
+                <a href="#" class="button button-primary-bordered"><span>Все события</span></a>
             </div>
             <div class="announces-block__title block-title">Анонсы мероприятий</div>
         </div>
@@ -274,7 +282,9 @@ include _header.jade
                     <div class="announces-block__slider-item swiper-slide">
                         <div class="item-header">
                             <div class="item-btn">
-                                <span></span>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.0216 0.260986H12.9781V23.7392H11.0216V0.260986Z" fill="white"/><path d="M23.739 11.0219V12.9784L0.260742 12.9784L0.260742 11.0219L23.739 11.0219Z" fill="white"/></svg>
+                                </a>
                             </div>
                             <div class="item-date">12-25 июля</div>
                         </div>
@@ -286,7 +296,9 @@ include _header.jade
                     <div class="announces-block__slider-item swiper-slide with_line">
                         <div class="item-header">
                             <div class="item-btn">
-                                <span></span>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.0216 0.260986H12.9781V23.7392H11.0216V0.260986Z" fill="white"/><path d="M23.739 11.0219V12.9784L0.260742 12.9784L0.260742 11.0219L23.739 11.0219Z" fill="white"/></svg>
+                                </a>
                             </div>
                             <div class="item-date">11-14 июля</div>
                         </div>
@@ -298,7 +310,9 @@ include _header.jade
                     <div class="announces-block__slider-item swiper-slide">
                         <div class="item-header">
                             <div class="item-btn">
-                                <span></span>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.0216 0.260986H12.9781V23.7392H11.0216V0.260986Z" fill="white"/><path d="M23.739 11.0219V12.9784L0.260742 12.9784L0.260742 11.0219L23.739 11.0219Z" fill="white"/></svg>
+                                </a>
                             </div>
                             <div class="item-date">12-25 июля</div>
                         </div>
@@ -313,7 +327,7 @@ include _header.jade
     </div>
 </section>
 
-<section class="restaurants-block block-padding">
+<section class="restaurants-block block-padding" data-scroll-section>
     <div class="restaurants-block__inner">
         <div class="restaurants-block__title block-title">Рестораны</div>
         <div class="restaurants-block__pearl">
@@ -369,7 +383,7 @@ include _header.jade
                         <div class="restaurants-block__middle-title">Артак Шекоян</div>
                         <div class="restaurants-block__middle-text">Шеф-повар Bar & terrace Ten Артак Шекоян признан лучшим в номинации «Молодой шеф Сибири» по версии премии «Что Где Есть в Сибири». В меню вы найдете авторские концептуальные рецепты европейской и средиземноморской кухни.</div>
                         <div class="restaurants-block__middle-btn">
-                            <a href="#" class="button button-primary-bordered">Биография</a>
+                            <a href="#" class="button button-primary-bordered"><span>Биография</span></a>
                         </div>
                     </div>
                 </div>
@@ -424,7 +438,7 @@ include _header.jade
     </div>
 </section>
 
-<section class="map-block block-padding">
+<section class="map-block block-padding" data-scroll-section>
     <div class="map-block__inner">
         <div class="map-block__pearl">
             <img src="include/images/map_pearl.png" alt="map_pearl">

@@ -6,11 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" integrity="sha512-F2E+YYE1gkt0T5TVajAslgDfTEUQKtlu4ralVq78ViNxhKXQLrgQLLie8u1tVdG2vWnB3ute4hcdbiBtvJQh0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/css/swiper.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.css">
     <link rel="stylesheet" href="template/styles.css">
 </head>
 <body>
     <div class="site-wrapper">
-        <header class="site-header block-padding">
+        <header class="site-header block-padding" data-scroll-section>
             <div class="site-header__inner block-width">
                 <div class="site-header__left">
                     <div class="site-header__burger-btn">
@@ -26,7 +27,7 @@
                         </span>
                     </div>
                     <div class="site-header__choose-btn">
-                        <span class="button button-white-op">Выбрать номер</span>
+                        <span class="button button-white-op"><span>Выбрать номер</span></span>
                     </div>
                     <div class="site-header__3d-btn">
                         <span  class="button button-white-op">
@@ -49,7 +50,7 @@
                         </div>
                     </div>
                     <div class="site-header__langs">
-                        <div class="site-header__langs-btn">En</div>
+                        <div class="site-header__langs-btn"><span>En</span></div>
                         <div class="site-header__langs-list">
                             <div class="site-header__langs-item">
                                 <a href="#">Ru</a>
@@ -81,6 +82,6 @@
                 </div>
             </div>
         </header>
-        <div class="site-content">
+        <div class="site-content" data-scroll-container>
 
         

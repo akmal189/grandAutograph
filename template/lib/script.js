@@ -16,10 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 (function () {
-    let IsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    let IsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+        site_scroll;
     myObj.queue = {
         // HEADER BEGIN
-        headerFunctions: function() {
+        headerFunctions: function () {
             const HEADER_WR = document.querySelector('.site-header');
             const BURGER_BLOCK = document.querySelector('.burger-block');
             const BURGER_BTN = document.querySelector('.site-header__burger-btn span');
@@ -28,12 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
             const ROUTE_BTN = document.querySelector('.main-first__right-title');
             const LANG_BTN = document.querySelector('.site-header__langs-btn');
 
-            if(IsMobile) {
+            site_scroll = new LocomotiveScroll({
+                el: document.querySelector('[data-scroll-container]'),
+                smooth: true
+            });
+
+            if (IsMobile) {
                 LANG_BTN.addEventListener('click', (e) => {
                     e.target.classList.toggle('active')
                     document.querySelector('.site-header__langs-list').classList.toggle('opened')
                 })
-                if(window.outerWidth <= 767) {
+                if (window.outerWidth <= 767) {
                     document.querySelector('.main-first__mobile-wr').append(document.querySelector('.main-first__video-btn'))
                     document.querySelector('.main-first__mobile-wr').append(document.querySelector('.main-first__right-title'))
                     document.querySelector('.interiors-block__body').append(document.querySelector('.interiors-block__left-bigText'))
@@ -42,13 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             document.querySelector('.first-letter').style.width = document.querySelector('.first-letter_in').getBoundingClientRect().width;
             document.querySelector('.v-letter').style.width = document.querySelector('.v-letter_in').getBoundingClientRect().width;
-            document.querySelector('.v-letter').style.left = document.querySelector('.v-letter_in').getBoundingClientRect().width+document.querySelector('.second-letter_in').getBoundingClientRect().width+10;
+            document.querySelector('.v-letter').style.left = document.querySelector('.v-letter_in').getBoundingClientRect().width + document.querySelector('.second-letter_in').getBoundingClientRect().width + 10;
             document.querySelector('.last-word').style.width = document.querySelector('.main_svg_last_word').getBoundingClientRect().width;
 
             window.addEventListener('resize', () => {
                 document.querySelector('.first-letter').style.width = document.querySelector('.first-letter_in').getBoundingClientRect().width;
                 document.querySelector('.v-letter').style.width = document.querySelector('.v-letter_in').getBoundingClientRect().width;
-                document.querySelector('.v-letter').style.left = document.querySelector('.v-letter_in').getBoundingClientRect().width+document.querySelector('.second-letter_in').getBoundingClientRect().width+10;
+                document.querySelector('.v-letter').style.left = document.querySelector('.v-letter_in').getBoundingClientRect().width + document.querySelector('.second-letter_in').getBoundingClientRect().width + 10;
                 document.querySelector('.last-word').style.width = document.querySelector('.main_svg_last_word').getBoundingClientRect().width;
             });
 
@@ -83,13 +89,13 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             document.addEventListener('click', (e) => {
-                if(e.target.classList.contains('popup-form') || e.target.classList.contains('popup-form__closer')) {
+                if (e.target.classList.contains('popup-form') || e.target.classList.contains('popup-form__closer')) {
                     document.querySelector('.popup-form').classList.remove('opened');
                     document.documentElement.classList.remove('overflow-hidden')
                 }
             })
 
-            if(document.querySelector('.fixed-btns__popup-btn')) {
+            if (document.querySelector('.fixed-btns__popup-btn')) {
                 document.querySelector('.fixed-btns__popup-btn span').addEventListener('click', (e) => {
                     e.target.classList.toggle('active')
                     document.querySelector('.fixed-btns__list').classList.toggle('active')
@@ -100,19 +106,19 @@ document.addEventListener('DOMContentLoaded', function () {
             let maskOptions = {
                 mask: '+{7} (000) 000-00-00'
             };
-            phoneInputs.forEach(function(phoneInput) {
+            phoneInputs.forEach(function (phoneInput) {
                 IMask(phoneInput, maskOptions);
             });
 
             VIDEO_BTN.addEventListener('click', () => {
                 document.querySelector('.main-first__video').classList.add('active')
-                setTimeout(function(){
+                setTimeout(function () {
                     document.querySelector('.main-first__video video').play()
                 }, 500)
             });
 
             let videoContainer = document.querySelector('.main-first__video');
-            document.querySelector('.main-first__video video').addEventListener('ended', function() {
+            document.querySelector('.main-first__video video').addEventListener('ended', function () {
                 videoContainer.classList.remove('active');
             });
 
@@ -121,16 +127,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.documentElement.classList.add('overflow-hidden')
             });
             document.addEventListener('click', (e) => {
-                if(e.target.classList.contains('popup-map') || e.target.classList.contains('popup-map__closer')) {
+                if (e.target.classList.contains('popup-map') || e.target.classList.contains('popup-map__closer')) {
                     document.querySelector('.popup-map').classList.remove('opened');
                     document.documentElement.classList.remove('overflow-hidden')
                 }
             })
+
+            if(!IsMobile) {
+                document.querySelectorAll('.burger-block__menu ul li a').forEach((item) => {
+                    item.addEventListener('mouseenter', () => {
+                        if(item.dataset.img) {
+                            document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
+                            document.querySelector('.burger-block__image').classList.remove('v_hidden')
+                        } else {
+                            document.querySelector('.burger-block__image').classList.add('v_hidden')
+                        }
+                    })
+                    item.addEventListener('mouseout', () => {
+                        document.querySelector('.burger-block__image').classList.add('v_hidden');
+                    })
+                })
+            }
         },
         // HEADER END
 
         // INTERIORS BLOCK BEGIN
-        interiorsBlockFunctions: function() {
+        interiorsBlockFunctions: function () {
             const INTER_LEFT = new Swiper('.interiors-block__left-slider .swiper', {
                 slidesPerView: 1,
                 loop: true,
@@ -161,9 +183,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         },
         // INTERIORS BLOCK END
-        
+
         // ANNOUNCES BLOCK BEGIN
-        announcesBlockFunctions: function() {
+        announcesBlockFunctions: function () {
             const ANNOUNCES_SLIDER = new Swiper('.announces-block__slider .swiper', {
                 slidesPerView: 2,
                 loop: true,
@@ -189,27 +211,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
             function setEqualHeight() {
                 var items = document.querySelectorAll('.announces-block__slider-item .item-title');
-                items.forEach(function(item) {
+                items.forEach(function (item) {
                     item.style.height = 'auto';
                 });
                 var maxHeight = 0;
-                items.forEach(function(item) {
+                items.forEach(function (item) {
                     if (item.offsetHeight > maxHeight) {
                         maxHeight = item.offsetHeight;
                     }
                 });
-                items.forEach(function(item) {
+                items.forEach(function (item) {
                     item.style.height = maxHeight + 'px';
                 });
             }
-    
+
             window.addEventListener('load', setEqualHeight);
             window.addEventListener('resize', setEqualHeight);
         },
         // ANNOUNCES BLOCK END
 
         // RESTAURANTS BLOCK BEGIN
-        restaurantsBlockFunctions: function() {
+        restaurantsBlockFunctions: function () {
             const RESTAURANT_SLIDER = new Swiper('.restaurants-block__bottom-slider .swiper', {
                 slidesPerView: 1,
                 loop: true,
@@ -225,25 +247,56 @@ document.addEventListener('DOMContentLoaded', function () {
         // RESTAURANTS BLOCK END
 
         // CONGRESS BLOCK BEGIN
-        congressBlockFunctions: function() {
+        congressBlockFunctions: function () {
             lightGallery(document.querySelector('.congress-block__gallery'), {
                 download: false,
                 counter: true,
                 selector: 'a'
-            });  
+            });
         },
         // CONGRESS BLOCK END
 
         // BLOCK ANIMATIONS BEGIN
         blockAnimations: function () {
-            gsap.registerPlugin(ScrollTrigger);
+            gsap.registerPlugin(ScrollTrigger, SplitText);
+
+            site_scroll.on("scroll", ScrollTrigger.update);
+
+            ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+                scrollTop(value) {
+                  return arguments.length ? site_scroll.scrollTo(value, 0, 0) : site_scroll.scroll.instance.scroll.y;
+                },
+                getBoundingClientRect() {
+                  return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+                },
+                pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
+            });
+
+            ScrollTrigger.addEventListener("refresh", () => site_scroll.update());
+            ScrollTrigger.refresh();
+
+            // Выбор элемента header
+            const header = document.querySelector('.site-header');
+
+            // Функция для добавления и удаления класса "fixed"
+            const handleScroll = () => {
+                const scrollPosition = site_scroll.scroll.instance.scroll.y;
+                if (scrollPosition > 0) {
+                    header.classList.add('fixed');
+                } else {
+                    header.classList.remove('fixed');
+                }
+            };
+
+            // Добавление обработчика события прокрутки
+            site_scroll.on('scroll', handleScroll);
 
             // Выбираем все элементы с классом 'citys-pearl__item'
             const items = document.querySelectorAll('.citys-pearl__item');
 
             // Настраиваем анимацию для каждого элемента
             items.forEach((item, index) => {
-                gsap.fromTo(item, 
+                gsap.fromTo(item,
                     {
                         opacity: 0,
                         y: 50
@@ -253,8 +306,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         y: 0,
                         scrollTrigger: {
                             trigger: item,
+                            scroller: "[data-scroll-container]",
                             start: "top 80%", // Настраиваем когда запускать анимацию
-                            toggleActions: "play reverse play reverse", // Настраиваем когда запускать и останавливать анимацию
+                            toggleActions: "play", // Настраиваем когда запускать и останавливать анимацию
                             stagger: 0.2 // Задержка между анимацией элементов
                         },
                         duration: 1, // Длительность анимации
@@ -267,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Настраиваем анимацию для каждого элемента
             items2.forEach((item, index) => {
-                gsap.fromTo(item, 
+                gsap.fromTo(item,
                     {
                         opacity: 0,
                         y: 50
@@ -277,23 +331,25 @@ document.addEventListener('DOMContentLoaded', function () {
                         y: 0,
                         scrollTrigger: {
                             trigger: item,
+                            scroller: "[data-scroll-container]",
                             start: "top 80%", // Настраиваем когда запускать анимацию
-                            toggleActions: "play reverse play reverse", // Настраиваем когда запускать и останавливать анимацию
-                            stagger: 0.2 // Задержка между анимацией элементов
+                            toggleActions: "play", // Настраиваем когда запускать и останавливать анимацию
+                            stagger: 0.1 // Задержка между анимацией элементов
                         },
-                        duration: 1, // Длительность анимации
-                        delay: (index % 5) * 0.25 // Задержка между элементами в ряду по 4
+                        duration: 0.7, // Длительность анимации
+                        delay: (index % 5) * 0.25 // Задержка между элементами в ряду по 5
                     }
                 );
             });
 
 
-            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .congress-block__gallery-item, .block-title, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
+            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .congress-block__gallery-item, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
             blocks.forEach((block) => {
                 gsap.set(block, { opacity: 0, y: 100 });
 
                 ScrollTrigger.create({
                     trigger: block,
+                    scroller: "[data-scroll-container]",
                     start: "top 99%",
                     stagger: 0.2, // Задержка между анимацией элементов
                     toggleActions: "play reverse play reverse",
@@ -303,86 +359,272 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-            window.addEventListener('scroll', () => {
-                // Параллакс эффект при прокрутке страницы
-                let parallaxElements = document.querySelectorAll('.citys-pearl .small-pearl img');
-                for (var i = 0; i < parallaxElements.length; i++) {
-                    var speed = 4; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    var yOffset = document.querySelector('.citys-pearl').getBoundingClientRect().y / speed;
-                    parallaxElements[i].style.transform = 'translateY(' + yOffset + 'px)';
-                }
-                let parallaxElements2 = document.querySelectorAll('.citys-pearl .medium-pearl');
-                for (let i = 0; i < parallaxElements2.length; i++) {
-                    let speed2 = 2.5; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset2 = document.querySelector('.citys-pearl').getBoundingClientRect().y / speed2;
-                    parallaxElements2[i].style.transform = 'translateY(' + yOffset2 + 'px)';
-                }
-                let parallaxElements3 = document.querySelectorAll('.citys-pearl .big-pearl img');
-                for (let i = 0; i < parallaxElements3.length; i++) {
-                    let speed3 = 3; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset3 = document.querySelector('.citys-pearl').getBoundingClientRect().y / speed3 + 250;
-                    parallaxElements3[i].style.transform = 'translateY(' + yOffset3 + 'px)';
-                }
-                let parallaxElements4 = document.querySelectorAll('.congress-block .congress-block__top-pearl');
-                for (let i = 0; i < parallaxElements4.length; i++) {
-                    let speed4 = 3; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset4 = document.querySelector('.congress-block').getBoundingClientRect().y / speed4 - 100;
-                    parallaxElements4[i].style.transform = 'translateY(' + yOffset4 + 'px)';
-                }
-                let parallaxElements5 = document.querySelectorAll('.congress-block__bottom-pearls .big');
-                for (let i = 0; i < parallaxElements5.length; i++) {
-                    let speed5 = 3; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset5 = document.querySelector('.congress-block').getBoundingClientRect().y / speed5;
-                    parallaxElements5[i].style.transform = 'translateY(' + yOffset5 + 'px)';
-                }
-                let parallaxElements6 = document.querySelectorAll('.congress-block__bottom-pearls .medium');
-                for (let i = 0; i < parallaxElements6.length; i++) {
-                    let speed6 = 2.5; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset6 = document.querySelector('.congress-block').getBoundingClientRect().y / speed6 ;
-                    parallaxElements6[i].style.transform = 'translateY(' + yOffset6 + 'px)';
-                }
-                let parallaxElements7 = document.querySelectorAll('.congress-block__bottom-pearls .small');
-                for (let i = 0; i < parallaxElements7.length; i++) {
-                    let speed7 = 1.5; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset7 = document.querySelector('.congress-block').getBoundingClientRect().y / speed7 - 100;
-                    parallaxElements7[i].style.transform = 'translateY(' + yOffset7 + 'px)';
-                }
-                let parallaxElements8 = document.querySelectorAll('.restaurants-block__pearl');
-                for (let i = 0; i < parallaxElements8.length; i++) {
-                    let speed8 = 3; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset8 = document.querySelector('.restaurants-block').getBoundingClientRect().y / speed8 - 100;
-                    parallaxElements8[i].style.transform = 'translateY(' + yOffset8 + 'px)';
-                }
-                let parallaxElements9 = document.querySelectorAll('.map-block__pearl');
-                for (let i = 0; i < parallaxElements9.length; i++) {
-                    let speed9 = 3; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset9 = document.querySelector('.map-block').getBoundingClientRect().y / speed9 - 100;
-                    parallaxElements9[i].style.transform = 'translateY(' + yOffset9 + 'px)';
-                }
-                let parallaxElements10 = document.querySelectorAll('.interiors-block__pearl img');
-                for (let i = 0; i < parallaxElements10.length; i++) {
-                    let speed10 = 4; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset10 = document.querySelector('.interiors-block').getBoundingClientRect().y / speed10;
-                    parallaxElements10[i].style.transform = 'translateY(' + yOffset10 + 'px)';
-                }
-                let parallaxElements11 = document.querySelectorAll('.restaurants-block__mobile-pearls .small');
-                for (let i = 0; i < parallaxElements11.length; i++) {
-                    let speed11 = 2; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset11 = document.querySelector('.restaurants-block__middle').getBoundingClientRect().y / speed11;
-                    parallaxElements11[i].style.transform = 'translateY(' + yOffset11 + 'px)';
-                }
-                let parallaxElements12 = document.querySelectorAll('.restaurants-block__mobile-pearls .big');
-                for (let i = 0; i < parallaxElements12.length; i++) {
-                    let speed12 = 4; // Скорость параллакса. Можно изменить по своему усмотрению.
-                    let yOffset12 = document.querySelector('.restaurants-block__middle').getBoundingClientRect().y / speed12;
-                    parallaxElements12[i].style.transform = 'translateY(' + yOffset12 + 'px)';
-                }
+            const titles = document.querySelectorAll('.block-title');
+
+            titles.forEach((title) => {
+                const split = new SplitText(title, { type: 'words, chars' });
+                const chars = split.chars;
+
+                gsap.from(chars, {
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: title,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play',
+                    },
+                    opacity: 0,
+                    y: 50,
+                    stagger: 0.05,
+                    duration: 1,
+                    ease: 'power2.out'
+                });
             });
+
+            let interiors_images = document.querySelectorAll('.interiors-block img');
+
+            interiors_images.forEach(image => {
+                gsap.fromTo(image, 
+                    { y: '-10%' },
+                    {
+                        y: '10%',
+                        scrollTrigger: {
+                            scroller: "[data-scroll-container]",
+                            trigger: '.interiors-block',
+                            start: 'top 40%',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    }
+                );
+            });
+
+            let restautants_images = document.querySelectorAll('.image-item-wr img');
+
+            restautants_images.forEach(image => {
+                gsap.fromTo(image, 
+                    { y: '-10%' },
+                    {
+                        y: '10%',
+                        scrollTrigger: {
+                            scroller: "[data-scroll-container]",
+                            trigger: image.closest('.image-item-wr'),
+                            start: 'top 40%',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    }
+                );
+            });
+
+            let restautants_slider_images = document.querySelectorAll('.restaurants-block__bottom-slider img');
+
+            restautants_slider_images.forEach(image => {
+                gsap.fromTo(image, 
+                    { y: '-10%' },
+                    {
+                        y: '10%',
+                        scrollTrigger: {
+                            scroller: "[data-scroll-container]",
+                            trigger: '.restaurants-block__bottom-slider',
+                            start: 'top 40%',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    }
+                );
+            });
+
+            gsap.fromTo(document.querySelector('.citys-pearl .small-pearl img'), 
+                { y: '30%' },
+                {
+                    y: '-30%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.citys-pearl',
+                        start: 'top 100%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.citys-pearl__top-image .medium-pearl'), 
+                { y: '40%' },
+                {
+                    y: '-40%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.citys-pearl',
+                        start: 'top 100%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.citys-pearl .big-pearl img'), 
+                { y: '20%' },
+                {
+                    y: '-20%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.citys-pearl',
+                        start: 'bottom 80%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+            
+            gsap.fromTo(document.querySelector('.congress-block .congress-block__top-pearl'), 
+                { y: '30%' },
+                {
+                    y: '-30%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.congress-block',
+                        start: 'top 80%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .big'), 
+                { y: '20%' },
+                {
+                    y: '-20%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.congress-block',
+                        start: 'bottom 70%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .medium'), 
+                { y: '30%' },
+                {
+                    y: '-30%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.congress-block',
+                        start: 'bottom 70%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .small'), 
+                { y: '105%' },
+                {
+                    y: '-205%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.congress-block',
+                        start: 'bottom 70%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.restaurants-block__pearl'), 
+                { y: '30%' },
+                {
+                    y: '-30%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.restaurants-block',
+                        start: 'top 40%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.map-block__pearl'), 
+                { y: '30%' },
+                {
+                    y: '-30%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.map-block',
+                        start: 'top 40%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.interiors-block__pearl img'), 
+                { y: '100%' },
+                {
+                    y: '-100%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.interiors-block__left',
+                        start: 'top 100%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.restaurants-block__mobile-pearls .small'), 
+                { y: '100%' },
+                {
+                    y: '-100%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.restaurants-block__middle',
+                        start: 'top 100%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            gsap.fromTo(document.querySelector('.restaurants-block__mobile-pearls .big'), 
+                { y: '30%' },
+                {
+                    y: '-30%',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: '.restaurants-block__middle',
+                        start: 'top 100%',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+
+            let congress_images = document.querySelectorAll('.congress-block__gallery-item img');
+
+            congress_images.forEach(image => {
+                gsap.fromTo(image, 
+                    { y: '-10%' },
+                    {
+                        y: '10%',
+                        scrollTrigger: {
+                            scroller: "[data-scroll-container]",
+                            trigger: '.congress-block',
+                            start: 'top 40%',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    }
+                );
+            });
+
         },
         // BLOCK ANIMATIONS END
 
         // FOOTER SCRIPTS BEGIN
-        footerScripts: function() {
+        footerScripts: function () {
             document.querySelectorAll('.site-footer__menu ul li.hasChild > a .arrow').forEach((item) => {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();

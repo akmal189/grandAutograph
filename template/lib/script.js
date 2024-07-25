@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // BLOCK ANIMATIONS BEGIN
         blockAnimations: function () {
-            gsap.registerPlugin(ScrollTrigger, SplitText);
+            gsap.registerPlugin(ScrollTrigger/*, SplitText*/);
 
             site_scroll.on("scroll", ScrollTrigger.update);
 
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-            const titles = document.querySelectorAll('.block-title');
+            /*const titles = document.querySelectorAll('.block-title');
 
             titles.forEach((title) => {
                 const split = new SplitText(title, { type: 'words, chars' });
@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     duration: 1,
                     ease: 'power2.out'
                 });
-            });
+            });*/
 
             let interiors_images = document.querySelectorAll('.interiors-block img');
 

@@ -318,7 +318,11 @@
         </div>
         <div class="popup-map__title">Улица Орджоникидзе, 31 Центральный район, Новосибирск</div>
         <div class="popup-map__image">
-            <img src="include/images/popup_map_image.png" alt="popup_map_image">
+            <picture class="picture header">
+                <source media="(min-width: 481px)" srcset="include/images/popup_map_image.png">
+                <source media="(max-width: 480px)" srcset="include/images/mobile_map_image.png">
+                <img src="include/images/popup_map_image.png" alt="popup_map_image">
+            </picture>
         </div>
         <div class="popup-map__btn">
             <a href="#" class="button button-primary"><span>Построить маршрут</span></a>

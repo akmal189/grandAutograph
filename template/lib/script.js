@@ -137,14 +137,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelectorAll('.burger-block__menu ul li a').forEach((item) => {
                     item.addEventListener('mouseenter', () => {
                         if (item.dataset.img) {
-                            document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
-                            document.querySelector('.burger-block__image').classList.remove('v_hidden')
+                            document.querySelector('.burger-block__image').classList.add('v_hidden');
+                            setTimeout(() => {
+                                document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
+                                document.querySelector('.burger-block__image').classList.remove('v_hidden')
+                            }, 300)
                         } else {
                             document.querySelector('.burger-block__image').classList.add('v_hidden')
                         }
-                    })
-                    item.addEventListener('mouseout', () => {
-                        document.querySelector('.burger-block__image').classList.add('v_hidden');
                     })
                 })
             }
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
         interiorsBlockFunctions: function () {
             const INTER_LEFT = new Swiper('.interiors-block__left-slider .swiper', {
                 slidesPerView: 1,
-                loop: true,
+                loop: false,
                 effect: 'slide',
                 speed: 1000,
                 spaceBetween: 0,
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
         restaurantsBlockFunctions: function () {
             const RESTAURANT_SLIDER = new Swiper('.restaurants-block__bottom-slider .swiper', {
                 slidesPerView: 1,
-                loop: true,
+                loop: false,
                 effect: 'slide',
                 speed: 1000,
                 spaceBetween: 0,
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
 
-            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .congress-block__gallery-item, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
+            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
             blocks.forEach((block) => {
                 gsap.set(block, { opacity: 0, y: 100 });
 
@@ -356,6 +356,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     onEnter: () => {
                         gsap.to(block, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
                     }
+                });
+            });
+
+            document.querySelectorAll('.congress-block__gallery-item').forEach(block => {
+                gsap.to(block, {
+                    clipPath: 'inset(0 0 0 0)',
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: block,
+                        start: "top 80%",
+                        end: "bottom top",
+                        scrub: true,
+                        markers: true
+                    },
+                    duration: 1,
+                    ease: "power2.out"
                 });
             });
 

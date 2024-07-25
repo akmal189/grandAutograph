@@ -2762,6 +2762,10 @@ p:last-child {
 }
 .congress-block__gallery-item {
     width: 50%;
+    position: relative;
+}
+.congress-block__gallery-item:hover {
+    z-index: 2;
 }
 .congress-block__gallery-item:nth-child(n+4) {
     display: none;

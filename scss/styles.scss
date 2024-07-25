@@ -2283,6 +2283,10 @@ p {
     }
     &__gallery-item {
         width: 50%;
+        position: relative;
+        &:hover {
+            z-index: 2;
+        }
         &:nth-child(n+4) {
             display: none;
         }

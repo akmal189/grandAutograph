@@ -133,10 +133,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             })
 
-            if(!IsMobile) {
+            if (!IsMobile) {
                 document.querySelectorAll('.burger-block__menu ul li a').forEach((item) => {
                     item.addEventListener('mouseenter', () => {
-                        if(item.dataset.img) {
+                        if (item.dataset.img) {
                             document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
                             document.querySelector('.burger-block__image').classList.remove('v_hidden')
                         } else {
@@ -264,10 +264,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             ScrollTrigger.scrollerProxy("[data-scroll-container]", {
                 scrollTop(value) {
-                  return arguments.length ? site_scroll.scrollTo(value, 0, 0) : site_scroll.scroll.instance.scroll.y;
+                    return arguments.length ? site_scroll.scrollTo(value, 0, 0) : site_scroll.scroll.instance.scroll.y;
                 },
                 getBoundingClientRect() {
-                  return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+                    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
                 },
                 pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
             });
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
 
-            const blocks = document.querySelectorAll(".block-title, .congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .congress-block__gallery-item, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
+            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .congress-block__gallery-item, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
             blocks.forEach((block) => {
                 gsap.set(block, { opacity: 0, y: 100 });
 
@@ -358,6 +358,60 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             });
+
+            let wordAnimate = document.querySelectorAll(".block-title"),
+                text,
+                wordSpan,
+                letterSpan;
+
+            wordAnimate.forEach((item) => {
+                text = item.textContent;
+                item.innerHTML = "";
+
+                // Разделите текст на слова и оберните каждое слово в <span> с классом "word"
+                text.split(" ").forEach(word => {
+                    wordSpan = document.createElement("span");
+                    wordSpan.classList.add("word");
+
+                    // Разделите каждое слово на буквы и оберните каждую букву в <span>
+                    word.split("").forEach(letter => {
+                        letterSpan = document.createElement("span");
+                        letterSpan.textContent = letter;
+                        wordSpan.appendChild(letterSpan);
+                    });
+
+                    // Добавьте слово в контейнер
+                    item.appendChild(wordSpan);
+                    // Добавьте пробел между словами
+                    item.appendChild(document.createTextNode(" "));
+                });
+
+                // Получите все span элементы с классом word
+                const letterSpans = item.querySelectorAll(".word span");
+
+                // Запустите анимацию
+                gsap.fromTo(letterSpans, {
+                    opacity: 0,
+                    y: 20, // Начальная позиция смещена вниз
+                }, {
+                    duration: 1,
+                    opacity: 1,
+                    y: 0, // Конечная позиция
+                    stagger: 0.05, // Задержка между анимациями букв
+                    ease: "power1.out",
+                    scrollTrigger: {
+                        scroller: "[data-scroll-container]",
+                        trigger: item,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play',
+                    },
+                    onComplete: function () {
+                        console.log("Animation complete");
+                    }
+                });
+            })
+            
 
             /*const titles = document.querySelectorAll('.block-title');
 
@@ -384,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let interiors_images = document.querySelectorAll('.interiors-block img');
 
             interiors_images.forEach(image => {
-                gsap.fromTo(image, 
+                gsap.fromTo(image,
                     { y: '-10%' },
                     {
                         y: '10%',
@@ -402,7 +456,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let restautants_images = document.querySelectorAll('.image-item-wr img');
 
             restautants_images.forEach(image => {
-                gsap.fromTo(image, 
+                gsap.fromTo(image,
                     { y: '-10%' },
                     {
                         y: '10%',
@@ -420,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let restautants_slider_images = document.querySelectorAll('.restaurants-block__bottom-slider img');
 
             restautants_slider_images.forEach(image => {
-                gsap.fromTo(image, 
+                gsap.fromTo(image,
                     { y: '-10%' },
                     {
                         y: '10%',
@@ -435,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 );
             });
 
-            gsap.fromTo(document.querySelector('.citys-pearl .small-pearl img'), 
+            gsap.fromTo(document.querySelector('.citys-pearl .small-pearl img'),
                 { y: '30%' },
                 {
                     y: '-30%',
@@ -449,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.citys-pearl__top-image .medium-pearl'), 
+            gsap.fromTo(document.querySelector('.citys-pearl__top-image .medium-pearl'),
                 { y: '40%' },
                 {
                     y: '-40%',
@@ -463,7 +517,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.citys-pearl .big-pearl img'), 
+            gsap.fromTo(document.querySelector('.citys-pearl .big-pearl img'),
                 { y: '20%' },
                 {
                     y: '-20%',
@@ -476,8 +530,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             );
-            
-            gsap.fromTo(document.querySelector('.congress-block .congress-block__top-pearl'), 
+
+            gsap.fromTo(document.querySelector('.congress-block .congress-block__top-pearl'),
                 { y: '30%' },
                 {
                     y: '-30%',
@@ -491,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .big'), 
+            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .big'),
                 { y: '20%' },
                 {
                     y: '-20%',
@@ -504,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             );
-            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .medium'), 
+            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .medium'),
                 { y: '30%' },
                 {
                     y: '-30%',
@@ -518,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .small'), 
+            gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .small'),
                 { y: '105%' },
                 {
                     y: '-205%',
@@ -532,7 +586,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.restaurants-block__pearl'), 
+            gsap.fromTo(document.querySelector('.restaurants-block__pearl'),
                 { y: '30%' },
                 {
                     y: '-30%',
@@ -546,7 +600,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.map-block__pearl'), 
+            gsap.fromTo(document.querySelector('.map-block__pearl'),
                 { y: '30%' },
                 {
                     y: '-30%',
@@ -560,7 +614,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.interiors-block__pearl img'), 
+            gsap.fromTo(document.querySelector('.interiors-block__pearl img'),
                 { y: '100%' },
                 {
                     y: '-100%',
@@ -574,7 +628,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.restaurants-block__mobile-pearls .small'), 
+            gsap.fromTo(document.querySelector('.restaurants-block__mobile-pearls .small'),
                 { y: '100%' },
                 {
                     y: '-100%',
@@ -588,7 +642,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            gsap.fromTo(document.querySelector('.restaurants-block__mobile-pearls .big'), 
+            gsap.fromTo(document.querySelector('.restaurants-block__mobile-pearls .big'),
                 { y: '30%' },
                 {
                     y: '-30%',
@@ -605,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let congress_images = document.querySelectorAll('.congress-block__gallery-item img');
 
             congress_images.forEach(image => {
-                gsap.fromTo(image, 
+                gsap.fromTo(image,
                     { y: '-10%' },
                     {
                         y: '10%',

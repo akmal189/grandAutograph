@@ -317,7 +317,7 @@ p:last-child {
         margin-bottom: 30px;
     }
 }
-.block-title div {
+.block-title span {
     font-size: inherit;
     color: inherit;
     font-family: inherit;

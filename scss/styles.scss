@@ -592,7 +592,7 @@ p {
         flex-direction: column;
         align-items: center;
         border-radius: 0 0 250px 250px;
-        background: rgba(var(--white), .15);
+        background: #5F4F53;
         gap: 22px;
         transition: all .5s ease;
         &.opened {
@@ -2496,6 +2496,7 @@ p {
         gap: 20px;
     }
     &__btn {
+        font-size: 0;
         @media all and (max-width: 800px) {
             order: -1;
         }
@@ -2529,7 +2530,7 @@ p {
         overflow: hidden;
         &.showed {
             .item-body img {
-                transform: translateY(0);
+                transform: translateY(19%);
             }
         }
         .swiper {
@@ -2545,7 +2546,7 @@ p {
         }
         &:hover {
             .item-body img {
-                transform: scale(1.08);
+                transform: translateY(0);
             }
         }
         &.swiper-slide-active {
@@ -2654,7 +2655,7 @@ p {
         }
         .item-body {
             font-size: 0;
-            margin-top: clamp(6.25rem, -1.25rem + 8.3333vw, 8.75rem);
+            margin-top: clamp(1.25rem, -1.25rem + 8.3333vw, 2.5rem);
             overflow: hidden;
             @media all and (max-width: 1024px) {
                 margin-top: 40px;

@@ -310,6 +310,9 @@ p {
         align-items: center;
         gap: clamp(1.25rem, -7.25rem + 8.3333vw, 1.875rem);
         transition: all .5s ease;
+        @media all and (max-width: 1800px) {
+            padding: clamp(1.3rem, -7.25rem + 8.3333vw, 3.75rem) 0;
+        }
         @media all and (max-width: 1260px) {
             padding: 30px 0;
         }
@@ -1291,9 +1294,12 @@ p {
 /* MAIN FIRST BLOCK BEGIN*/
 .main-first {
     height: 100vh;
-    min-height: 938px;
-    @media all and (min-width: 1450px) {
-        min-height: 1250px;
+    min-height: 1250px;
+    @media all and (max-width: 1800px) {
+        min-height: 950px;
+    }
+    @media all and (max-width: 1500px) {
+        min-height: 938px;
     }
     @media all and (max-width: 1260px) {
         min-height: 625px;
@@ -1315,10 +1321,12 @@ p {
         right: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
         //top: clamp(18.5rem, 14.25rem + 8.3333vw, 24.75rem);
         bottom: 30vw;
-        //opacity: 0;
         transition: all 2s ease;
         @media all and (max-width: 1500px) {
             bottom: 29vw;
+        }
+        @media all and (max-width: 1300px) {
+            top: 27vw;
         }
         @media all and (max-width: 1260px) {
             left: 40px;
@@ -1401,8 +1409,8 @@ p {
         position: relative;
         overflow: hidden;
         background: url('../include/images/main-f-bl-left.png') 50%/cover no-repeat rgb(var(--primary));
-        @media all and (max-width: 1500px) {
-            padding-top: clamp(5.375rem, 4.25rem + 8.3333vw, 9.45rem);
+        @media all and (max-width: 1800px) {
+            padding-top: clamp(5.375rem, 4.25rem + 2.9333vw, 9.45rem);
         }
         @media all and (max-width: 1260px) {
             padding-left: 40px;

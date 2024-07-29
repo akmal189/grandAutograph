@@ -371,6 +371,11 @@ p:last-child {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+@media all and (max-width: 1800px) {
+    .site-header__inner {
+        padding: clamp(1.3rem, -7.25rem + 8.3333vw, 3.75rem) 0;
+    }
+}
 @media all and (max-width: 1260px) {
     .site-header__inner {
         padding: 30px 0;
@@ -1492,11 +1497,16 @@ p:last-child {
 /* MAIN FIRST BLOCK BEGIN*/
 .main-first {
     height: 100vh;
-    min-height: 938px;
+    min-height: 1250px;
 }
-@media all and (min-width: 1450px) {
+@media all and (max-width: 1800px) {
     .main-first {
-        min-height: 1250px;
+        min-height: 950px;
+    }
+}
+@media all and (max-width: 1500px) {
+    .main-first {
+        min-height: 938px;
     }
 }
 @media all and (max-width: 1260px) {
@@ -1532,6 +1542,11 @@ p:last-child {
 @media all and (max-width: 1500px) {
     .main-first__title {
         bottom: 29vw;
+    }
+}
+@media all and (max-width: 1300px) {
+    .main-first__title {
+        top: 27vw;
     }
 }
 @media all and (max-width: 1260px) {
@@ -1638,9 +1653,9 @@ p:last-child {
     overflow: hidden;
     background: url("../include/images/main-f-bl-left.png") 50%/cover no-repeat rgb(var(--primary));
 }
-@media all and (max-width: 1500px) {
+@media all and (max-width: 1800px) {
     .main-first__left {
-        padding-top: clamp(5.375rem, 4.25rem + 8.3333vw, 9.45rem);
+        padding-top: clamp(5.375rem, 4.25rem + 2.9333vw, 9.45rem);
     }
 }
 @media all and (max-width: 1260px) {

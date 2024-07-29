@@ -181,6 +181,9 @@ p {
 [data-scroll-container] {
     overflow: hidden;
 }
+.gsap-marker-scroller-end, .gsap-marker-scroller-start, .gsap-marker-end, .gsap-marker-start {
+    opacity: 0;
+}
 .button {
     padding: 17px 28px 19px;
     display: inline-block;
@@ -1980,6 +1983,23 @@ p {
         position: relative;
         margin-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
         font-size: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        transition: all 0.5s ease;
+        opacity: 0;
+        &.showed {
+            opacity: 1;
+            .swiper {
+                transform: translateY(0%);
+            }
+        }
+        > .swiper {
+            width: 100%;
+            transform-origin: bottom;
+            transform: translateY(100%);
+            transition: all 1s ease;
+        }
         @media all and (max-width: 980px) {
             margin-bottom: 20px;
         }
@@ -2158,6 +2178,21 @@ p {
     }
     &__right-slider {
         position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.5s ease;
+        &.showed {
+            opacity: 1;
+            .swiper {
+                transform: translateY(0%);
+            }
+        }
+        > .swiper {
+            width: 100%;
+            transform-origin: bottom;
+            transform: translateY(100%);
+            transition: all 2s ease;
+        }
         &:before {
             content: '';
             top: 0;
@@ -2302,6 +2337,8 @@ p {
     &__gallery-item {
         width: 50%;
         position: relative;
+        overflow: hidden;
+        transform-origin: bottom;
         &:hover {
             z-index: 2;
         }
@@ -2490,6 +2527,11 @@ p {
     }
     &__slider {
         overflow: hidden;
+        &.showed {
+            .item-body img {
+                transform: translateY(0);
+            }
+        }
         .swiper {
             margin-right: -1px;
         }
@@ -2619,7 +2661,8 @@ p {
             }
             img {
                 will-change: transform;
-                transition: all 0.5s ease;
+                transition: all 1s ease;
+                transform: translateY(100%);
             }
         }
     }
@@ -2663,6 +2706,11 @@ p {
             color: rgb(var(--bar-name-color));
             display: block;
             overflow: hidden;
+            &.showed {
+                .image {
+                    transform: translateY(0);
+                }
+            }
             .logo {
                 display: none;
                 @media all and (max-width: 1500px) {
@@ -2686,6 +2734,8 @@ p {
                 display: block;
                 position: relative;
                 padding-top: 79.3%;
+                transition: all 1s ease;
+                transform: translateY(100%);
                 &:before {
                     content: '';
                     position: absolute;
@@ -2955,6 +3005,16 @@ p {
     &__bottom-slider {
         position: relative;
         font-size: 0;
+        overflow: hidden;
+        &.showed {
+            .swiper {
+                transform: translateY(0);
+            }
+        }
+        .swiper {
+            transition: all 1s ease;
+            transform: translateY(100%);
+        }
     }
     &__slider-nav {
         position: absolute;

@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 smooth: true
             });
 
+            
+    
+
             if (IsMobile) {
                 LANG_BTN.addEventListener('click', (e) => {
                     e.target.classList.toggle('active')
@@ -153,6 +156,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // INTERIORS BLOCK BEGIN
         interiorsBlockFunctions: function () {
+            document.querySelector('.interiors-block__left-slider').style.height = document.querySelector('.interiors-block__left-slider > .swiper').height;
+            
+
             const INTER_LEFT = new Swiper('.interiors-block__left-slider .swiper', {
                 slidesPerView: 1,
                 loop: false,
@@ -167,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             lightGallery(document.querySelector('.interiors-block__left-slider'), {
                 download: false,
                 counter: true,
-                selector: 'a'
+                selector: 'a.slider-item__image'
             });
 
             const INTER_RIGHT = new Swiper('.interiors-block__right-slider .swiper', {
@@ -280,16 +286,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Функция для добавления и удаления класса "fixed"
             const handleScroll = () => {
-                const scrollPosition = site_scroll.scroll.instance.scroll.y;
+                let scrollPosition = site_scroll.scroll.instance.scroll.y;
                 if (scrollPosition > 0) {
                     header.classList.add('fixed');
                 } else {
                     header.classList.remove('fixed');
                 }
             };
+            let interLeftSlider = document.querySelector('.interiors-block__left-slider');
+            const interLSlider = () => {
+                let rect = interLeftSlider.getBoundingClientRect();
+                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
+                if (inView) {
+                    interLeftSlider.classList.add('showed');
+                }
+            };
+            let interRightSlider = document.querySelector('.interiors-block__right-slider');
+            const interRSlider = () => {
+                let rect = interRightSlider.getBoundingClientRect();
+                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
+                if (inView) {
+                    interRightSlider.classList.add('showed');
+                }
+            };
+
+            let announcesSlider = document.querySelector('.announces-block__slider');
+            const anSlider = () => {
+                let rect = announcesSlider.getBoundingClientRect();
+                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
+                if (inView) {
+                    announcesSlider.classList.add('showed');
+                }
+            };
+
+            let restoransImageItems = () => {
+                const blocks = document.querySelectorAll('.image-item-wr');
+                blocks.forEach(block => {
+                    let rect = block.getBoundingClientRect();
+                    let inView = rect.top + 400 < window.innerHeight && rect.bottom >= 0;
+                    if (inView) {
+                        block.classList.add('showed');
+                    }
+                });
+            }
+
+            let restSlider = document.querySelector('.restaurants-block__bottom-slider');
+            const restaurantsSlider = () => {
+                let rect = restSlider.getBoundingClientRect();
+                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
+                if (inView) {
+                    restSlider.classList.add('showed');
+                }
+            };
 
             // Добавление обработчика события прокрутки
             site_scroll.on('scroll', handleScroll);
+            site_scroll.on('scroll', interLSlider);
+            site_scroll.on('scroll', interRSlider);
+            site_scroll.on('scroll', anSlider);
+            site_scroll.on('scroll', restoransImageItems);
+            site_scroll.on('scroll', restaurantsSlider);
 
             // Выбираем все элементы с классом 'citys-pearl__item'
             const items = document.querySelectorAll('.citys-pearl__item');
@@ -336,14 +392,14 @@ document.addEventListener('DOMContentLoaded', function () {
                             toggleActions: "play", // Настраиваем когда запускать и останавливать анимацию
                             stagger: 0.1 // Задержка между анимацией элементов
                         },
-                        duration: 0.7, // Длительность анимации
+                        duration: 0.5, // Длительность анимации
                         delay: (index % 5) * 0.25 // Задержка между элементами в ряду по 5
                     }
                 );
             });
 
 
-            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .citys-pearl__text, .interiors-block__left-slider, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
+            const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .citys-pearl__text, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-slider, .interiors-block__right-text");
             blocks.forEach((block) => {
                 gsap.set(block, { opacity: 0, y: 100 });
 
@@ -359,21 +415,71 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-            document.querySelectorAll('.congress-block__gallery-item').forEach(block => {
-                gsap.to(block, {
-                    clipPath: 'inset(0 0 0 0)',
+            document.querySelectorAll('.congress-block__gallery-item').forEach((block, index) => {
+                let content = block;
+                let contentHeight = content.offsetHeight;
+                
+                gsap.fromTo(block, 
+                    {
+                        height: 0
+                    }, 
+                    {
+                        height: contentHeight,
+                        scrollTrigger: {
+                            trigger: block,
+                            scroller: "[data-scroll-container]",
+                            start: "top 50%",
+                            end: "bottom top",
+                            scrub: false,
+                            markers: true,
+                            toggleActions: 'play'
+                        },
+                        duration: 1,
+                        ease: "power2.out",
+                        delay: index * 0.2
+                    }
+                );
+    
+                gsap.to(content, {
+                    opacity: 1,
                     scrollTrigger: {
                         scroller: "[data-scroll-container]",
                         trigger: block,
-                        start: "top 80%",
+                        start: "top 50%",
                         end: "bottom top",
-                        scrub: true,
-                        markers: true
+                        scrub: false,
+                        markers: true,
+                        toggleActions: 'play'
+                    },
+                    duration: 1,
+                    ease: "power2.out",
+                    delay: index * 0.2
+                });
+            });
+
+            /*gsap.fromTo('.interiors-block__left-slider > .swiper', 
+                {
+                    height: 0,
+                    opacity: 0
+                }, 
+                {
+                    height: document.querySelector('.interiors-block__left-slider > .swiper').offsetHeight,
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: '.interiors-block',
+                        scroller: "[data-scroll-container]",
+                        start: "top 30%",
+                        end: "bottom top",
+                        scrub: false,
+                        markers: true,
+                        toggleActions: 'play'
                     },
                     duration: 1,
                     ease: "power2.out"
-                });
-            });
+                }
+            );*/
+
+            
 
             let wordAnimate = document.querySelectorAll(".block-title"),
                 text,

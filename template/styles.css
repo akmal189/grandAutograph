@@ -216,6 +216,10 @@ p:last-child {
     overflow: hidden;
 }
 
+.gsap-marker-scroller-end, .gsap-marker-scroller-start, .gsap-marker-end, .gsap-marker-start {
+    opacity: 0;
+}
+
 .button {
     padding: 17px 28px 19px;
     display: inline-block;
@@ -2390,6 +2394,32 @@ p:last-child {
     position: relative;
     margin-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
     font-size: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+.interiors-block__left-slider.showed {
+    opacity: 1;
+}
+.interiors-block__left-slider.showed .swiper {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+}
+.interiors-block__left-slider > .swiper {
+    width: 100%;
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 @media all and (max-width: 980px) {
     .interiors-block__left-slider {
@@ -2597,6 +2627,26 @@ p:last-child {
 }
 .interiors-block__right-slider {
     position: relative;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.interiors-block__right-slider.showed {
+    opacity: 1;
+}
+.interiors-block__right-slider.showed .swiper {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+}
+.interiors-block__right-slider > .swiper {
+    width: 100%;
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-transition: all 2s ease;
+    transition: all 2s ease;
 }
 .interiors-block__right-slider:before {
     content: "";
@@ -2778,6 +2828,9 @@ p:last-child {
 .congress-block__gallery-item {
     width: 50%;
     position: relative;
+    overflow: hidden;
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
 }
 .congress-block__gallery-item:hover {
     z-index: 2;
@@ -3022,6 +3075,10 @@ p:last-child {
 .announces-block__slider {
     overflow: hidden;
 }
+.announces-block__slider.showed .item-body img {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
 .announces-block__slider .swiper {
     margin-right: -1px;
 }
@@ -3188,8 +3245,10 @@ p:last-child {
 }
 .announces-block__slider-item .item-body img {
     will-change: transform;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
 }
 
 /* ANNOUNCES BLOCK END */
@@ -3232,6 +3291,10 @@ p:last-child {
     display: block;
     overflow: hidden;
 }
+.restaurants-block__body .image-item-wr.showed .image {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
 .restaurants-block__body .image-item-wr .logo {
     display: none;
 }
@@ -3261,6 +3324,10 @@ p:last-child {
     display: block;
     position: relative;
     padding-top: 79.3%;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
 }
 .restaurants-block__body .image-item-wr .image:before {
     content: "";
@@ -3626,6 +3693,17 @@ p:last-child {
 .restaurants-block__bottom-slider {
     position: relative;
     font-size: 0;
+    overflow: hidden;
+}
+.restaurants-block__bottom-slider.showed .swiper {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+.restaurants-block__bottom-slider .swiper {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
 }
 .restaurants-block__slider-nav {
     position: absolute;

@@ -1075,16 +1075,51 @@ p:last-child {
 .burger-block__presentation a:hover {
     text-decoration: none;
 }
+.burger-block__presentation a:hover .icon:before {
+    -webkit-box-shadow: inset 0 0 0 100px rgb(var(--white));
+            box-shadow: inset 0 0 0 100px rgb(var(--white));
+}
+.burger-block__presentation a:hover .icon svg path {
+    fill: rgb(var(--primary));
+}
 .burger-block__presentation a .icon {
     width: 60px;
     height: 60px;
     min-width: 60px;
     border-radius: 100%;
-    border: 1px solid rgb(var(--white));
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 4.375C18 4.09886 17.7761 3.875 17.5 3.875C17.2238 3.875 17 4.09886 17 4.375L18 4.375ZM17 22.4167C17 22.6928 17.2238 22.9167 17.5 22.9167C17.7761 22.9167 18 22.6928 18 22.4167H17ZM23.6868 17.8536C23.8821 17.6583 23.8821 17.3417 23.6868 17.1464C23.4916 16.9512 23.175 16.9512 22.9797 17.1464L23.6868 17.8536ZM18.5312 22.3021L18.1776 21.9486L18.5312 22.3021ZM16.4688 22.3021L16.8223 21.9486L16.4688 22.3021ZM12.0202 17.1464C11.8249 16.9512 11.5083 16.9512 11.3131 17.1464C11.1178 17.3417 11.1178 17.6583 11.3131 17.8536L12.0202 17.1464ZM8.37012 30.125C8.09397 30.125 7.87012 30.3489 7.87012 30.625C7.87012 30.9011 8.09397 31.125 8.37012 31.125V30.125ZM27.3919 31.125C27.668 31.125 27.8919 30.9011 27.8919 30.625C27.8919 30.3489 27.668 30.125 27.3919 30.125V31.125ZM17 4.375L17 22.4167H18L18 4.375L17 4.375ZM22.9797 17.1464L18.1776 21.9486L18.8847 22.6557L23.6868 17.8536L22.9797 17.1464ZM16.8223 21.9486L12.0202 17.1464L11.3131 17.8536L16.1152 22.6557L16.8223 21.9486ZM18.1776 21.9486C17.8033 22.3228 17.1966 22.3228 16.8223 21.9486L16.1152 22.6557C16.88 23.4205 18.1199 23.4205 18.8847 22.6557L18.1776 21.9486ZM8.37012 31.125H27.3919V30.125H8.37012V31.125Z' fill='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+}
+.burger-block__presentation a .icon:before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 100%;
+    -webkit-box-shadow: inset 0 0 0 1px rgb(var(--white));
+            box-shadow: inset 0 0 0 1px rgb(var(--white));
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.burger-block__presentation a .icon svg {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 2;
+}
+.burger-block__presentation a .icon svg path {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 .burger-block__socials-list {
     display: -webkit-box;
@@ -1506,7 +1541,7 @@ p:last-child {
 }
 @media all and (max-width: 1500px) {
     .main-first {
-        min-height: 938px;
+        min-height: 878px;
     }
 }
 @media all and (max-width: 1400px) {
@@ -1517,6 +1552,14 @@ p:last-child {
 @media all and (max-width: 1260px) {
     .main-first {
         min-height: 625px;
+    }
+}
+@media all and (max-width: 1023px) {
+    .main-first {
+        height: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
     }
 }
 @media all and (max-width: 767px) {
@@ -1536,6 +1579,14 @@ p:last-child {
     height: 100%;
     position: relative;
 }
+@media all and (max-width: 1023px) {
+    .main-first__inner {
+        -webkit-box-flex: 1;
+            -ms-flex: auto;
+                flex: auto;
+        height: auto;
+    }
+}
 .main-first__title {
     position: absolute;
     left: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
@@ -1549,15 +1600,16 @@ p:last-child {
         bottom: 29vw;
     }
 }
-@media all and (max-width: 1300px) {
+@media all and (max-width: 1450px) {
     .main-first__title {
-        top: 27vw;
+        bottom: 27vw;
     }
 }
 @media all and (max-width: 1260px) {
     .main-first__title {
         left: 40px;
         right: 40px;
+        bottom: auto;
         top: 184px;
     }
 }

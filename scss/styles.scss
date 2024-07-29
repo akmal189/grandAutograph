@@ -914,15 +914,43 @@ p {
             max-width: 250px;
             &:hover {
                 text-decoration: none;
+                .icon {
+                    &:before {
+                        box-shadow: inset 0 0 0 100px rgb(var(--white));
+                    }
+                    svg path {
+                        fill: rgb(var(--primary));
+                    }
+                }
             }
             .icon {
                 width: 60px;
                 height: 60px;
                 min-width: 60px;
                 border-radius: 100%;
-                border: 1px solid rgb(var(--white));
                 display: flex;
-                background: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 4.375C18 4.09886 17.7761 3.875 17.5 3.875C17.2238 3.875 17 4.09886 17 4.375L18 4.375ZM17 22.4167C17 22.6928 17.2238 22.9167 17.5 22.9167C17.7761 22.9167 18 22.6928 18 22.4167H17ZM23.6868 17.8536C23.8821 17.6583 23.8821 17.3417 23.6868 17.1464C23.4916 16.9512 23.175 16.9512 22.9797 17.1464L23.6868 17.8536ZM18.5312 22.3021L18.1776 21.9486L18.5312 22.3021ZM16.4688 22.3021L16.8223 21.9486L16.4688 22.3021ZM12.0202 17.1464C11.8249 16.9512 11.5083 16.9512 11.3131 17.1464C11.1178 17.3417 11.1178 17.6583 11.3131 17.8536L12.0202 17.1464ZM8.37012 30.125C8.09397 30.125 7.87012 30.3489 7.87012 30.625C7.87012 30.9011 8.09397 31.125 8.37012 31.125V30.125ZM27.3919 31.125C27.668 31.125 27.8919 30.9011 27.8919 30.625C27.8919 30.3489 27.668 30.125 27.3919 30.125V31.125ZM17 4.375L17 22.4167H18L18 4.375L17 4.375ZM22.9797 17.1464L18.1776 21.9486L18.8847 22.6557L23.6868 17.8536L22.9797 17.1464ZM16.8223 21.9486L12.0202 17.1464L11.3131 17.8536L16.1152 22.6557L16.8223 21.9486ZM18.1776 21.9486C17.8033 22.3228 17.1966 22.3228 16.8223 21.9486L16.1152 22.6557C16.88 23.4205 18.1199 23.4205 18.8847 22.6557L18.1776 21.9486ZM8.37012 31.125H27.3919V30.125H8.37012V31.125Z' fill='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                &:before {
+                    content: '';
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    position: absolute;
+                    border-radius: 100%;
+                    box-shadow: inset 0 0 0 1px rgb(var(--white));
+                    transition: all 0.5s ease;
+                }
+                svg {
+                    transition: all 0.5s ease;
+                    position: relative;
+                    z-index: 2;
+                    path {
+                        transition: all 0.5s ease;
+                    }
+                }
             }
         }
     }
@@ -1299,13 +1327,17 @@ p {
         min-height: 950px;
     }
     @media all and (max-width: 1500px) {
-        min-height: 938px;
+        min-height: 878px;
     }
     @media all and (max-width: 1400px) {
         min-height: 880px;
     }
     @media all and (max-width: 1260px) {
         min-height: 625px;
+    }
+    @media all and (max-width: 1023px) {
+        height: auto;
+        display: flex;
     }
     @media all and (max-width: 767px) {
         min-height: 788px;
@@ -1317,6 +1349,10 @@ p {
         display: flex;
         height: 100%;
         position: relative;
+        @media all and (max-width: 1023px) {
+            flex: auto;
+            height: auto;
+        }
     }
     &__title {
         position: absolute;
@@ -1328,12 +1364,13 @@ p {
         @media all and (max-width: 1500px) {
             bottom: 29vw;
         }
-        @media all and (max-width: 1300px) {
-            top: 27vw;
+        @media all and (max-width: 1450px) {
+            bottom: 27vw;
         }
         @media all and (max-width: 1260px) {
             left: 40px;
             right: 40px;
+            bottom: auto;
             top: 184px;
         }
         @media all and (max-width: 768px) {

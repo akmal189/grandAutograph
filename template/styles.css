@@ -1509,6 +1509,11 @@ p:last-child {
         min-height: 938px;
     }
 }
+@media all and (max-width: 1400px) {
+    .main-first {
+        min-height: 880px;
+    }
+}
 @media all and (max-width: 1260px) {
     .main-first {
         min-height: 625px;

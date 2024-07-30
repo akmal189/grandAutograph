@@ -2478,10 +2478,10 @@ p:last-child {
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
 }
-.interiors-block__left-slider > .swiper {
+.interiors-block__left-slider .swiper {
     width: 100%;
 }
-.interiors-block__left-slider > .swiper .swiper-slide {
+.interiors-block__left-slider .swiper .swiper-slide {
     -webkit-transform-origin: bottom;
             transform-origin: bottom;
     -webkit-transform: translateY(100%);
@@ -2674,10 +2674,10 @@ p:last-child {
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
 }
-.interiors-block__right-slider > .swiper {
+.interiors-block__right-slider .swiper {
     width: 100%;
 }
-.interiors-block__right-slider > .swiper .swiper-slide {
+.interiors-block__right-slider .swiper .swiper-slide {
     -webkit-transform-origin: bottom;
             transform-origin: bottom;
     -webkit-transform: translateY(100%);

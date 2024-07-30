@@ -2027,9 +2027,6 @@ p {
             }
         }
     }
-    &__left-slider-wr {
-        //overflow: hidden;
-    }
     &__left-slider {
         position: relative;
         margin-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
@@ -2043,7 +2040,7 @@ p {
                 transform: translateY(0%);
             }
         }
-        > .swiper {
+        .swiper {
             width: 100%;
             .swiper-slide {
                 transform-origin: bottom;
@@ -2199,9 +2196,6 @@ p {
             }
         }
     }
-    &__right-slider-wr {
-        //overflow: hidden;
-    }
     &__right-slider {
         position: relative;
         //overflow: hidden;
@@ -2211,7 +2205,7 @@ p {
                 transform: translateY(0%);
             }
         }
-        > .swiper {
+        .swiper {
             width: 100%;
             .swiper-slide {
                 transform-origin: bottom;

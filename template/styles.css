@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @font-face {
     font-family: "rmls-black";
@@ -2462,6 +2461,9 @@ p:last-child {
         background: rgb(var(--site-borders));
     }
 }
+.interiors-block__left-slider-wr {
+    overflow: hidden;
+}
 .interiors-block__left-slider {
     position: relative;
     margin-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
@@ -2529,35 +2531,6 @@ p:last-child {
 }
 .interiors-block__left-slider .slider-item {
     position: relative;
-    /*&:before {
-        content: '';
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        bottom: 40px;
-        left: 40px;
-        border-radius: 100%;
-        border: 1px solid rgb(var(--white));
-        transition: all 0.5s ease;
-        background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.4783 0.760864V10.5217L11.5217 10.5217V0.760864H12.4783ZM11.5217 11.5217L12.4783 11.5217V12.4783L11.5217 12.4783V11.5217ZM13.4783 12.4783V11.5217H23.2391V12.4783H13.4783ZM11.5217 13.4783L12.4783 13.4783V23.2391H11.5217V13.4783ZM10.5217 11.5217V12.4783H0.760864L0.760864 11.5217H10.5217Z' fill='%239C163A' stroke='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
-        pointer-events: none;
-        @media all and (max-width: 1500px) {
-            background: none;
-            content: 'Смотреть номера';
-            font-size: 16px;
-            width: auto;
-            height: auto;
-            left: 30px;
-            bottom: 30px;
-            border-radius: 250px;
-            color: rgb(var(--white));
-            font-weight: bold;
-            padding: 15px 20px;
-        }
-        @media all and (max-width: 1024px) {
-            display: none;
-        }
-    }*/
 }
 .interiors-block__left-slider .slider-item:hover:before {
     border-color: rgb(var(--primary));
@@ -2696,6 +2669,9 @@ p:last-child {
         width: 1px;
         background: rgb(var(--site-borders));
     }
+}
+.interiors-block__right-slider-wr {
+    overflow: hidden;
 }
 .interiors-block__right-slider {
     position: relative;

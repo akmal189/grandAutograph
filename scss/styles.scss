@@ -2027,6 +2027,9 @@ p {
             }
         }
     }
+    &__left-slider-wr {
+        overflow: hidden;
+    }
     &__left-slider {
         position: relative;
         margin-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
@@ -2135,35 +2138,6 @@ p {
                     z-index: 1;
                 }
             }
-            /*&:before {
-                content: '';
-                position: absolute;
-                width: 60px;
-                height: 60px;
-                bottom: 40px;
-                left: 40px;
-                border-radius: 100%;
-                border: 1px solid rgb(var(--white));
-                transition: all 0.5s ease;
-                background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.4783 0.760864V10.5217L11.5217 10.5217V0.760864H12.4783ZM11.5217 11.5217L12.4783 11.5217V12.4783L11.5217 12.4783V11.5217ZM13.4783 12.4783V11.5217H23.2391V12.4783H13.4783ZM11.5217 13.4783L12.4783 13.4783V23.2391H11.5217V13.4783ZM10.5217 11.5217V12.4783H0.760864L0.760864 11.5217H10.5217Z' fill='%239C163A' stroke='white'/%3E%3C/svg%3E%0A") 50% no-repeat;
-                pointer-events: none;
-                @media all and (max-width: 1500px) {
-                    background: none;
-                    content: 'Смотреть номера';
-                    font-size: 16px;
-                    width: auto;
-                    height: auto;
-                    left: 30px;
-                    bottom: 30px;
-                    border-radius: 250px;
-                    color: rgb(var(--white));
-                    font-weight: bold;
-                    padding: 15px 20px;
-                }
-                @media all and (max-width: 1024px) {
-                    display: none;
-                }
-            }*/
         }
     }
     &__left-text {
@@ -2224,6 +2198,9 @@ p {
                 background: rgb(var(--site-borders));
             }
         }
+    }
+    &__right-slider-wr {
+        overflow: hidden;
     }
     &__right-slider {
         position: relative;

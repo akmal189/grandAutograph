@@ -2038,21 +2038,17 @@ p {
         display: flex;
         align-items: flex-end;
         transition: all 0.5s ease;
-        opacity: 0;
         &.showed {
-            opacity: 1;
-            .swiper-wrapper {
+            .swiper-wrapper .swiper-slide {
                 transform: translateY(0%);
             }
         }
         > .swiper {
             width: 100%;
-            overflow: visible;
-            .swiper-wrapper {
-                overflow: hidden;
+            .swiper-slide {
                 transform-origin: bottom;
                 transform: translateY(100%);
-                transition: all 1s ease;
+                transition: all 2s ease;
             }
         }
         @media all and (max-width: 980px) {
@@ -2209,23 +2205,18 @@ p {
     &__right-slider {
         position: relative;
         //overflow: hidden;
-        opacity: 0;
         transition: all 0.5s ease;
         &.showed {
-            opacity: 1;
-            .swiper-wrapper {
+            .swiper-wrapper .swiper-slide {
                 transform: translateY(0%);
             }
         }
         > .swiper {
             width: 100%;
-            //overflow: hidden;
-            overflow: visible;
-            .swiper-wrapper {
+            .swiper-slide {
                 transform-origin: bottom;
                 transform: translateY(100%);
                 transition: all 2s ease;
-                overflow: hidden;
             }
         }
         &:before {
@@ -3048,13 +3039,16 @@ p {
         font-size: 0;
         overflow: hidden;
         &.showed {
-            .swiper {
+            .swiper .swiper-slide {
                 transform: translateY(0);
             }
         }
         .swiper {
-            transition: all 1s ease;
-            transform: translateY(100%);
+            overflow: hidden;
+            .swiper-slide {
+                transition: all 1s ease;
+                transform: translateY(100%);
+            }
         }
     }
     &__slider-nav {

@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // INTERIORS BLOCK BEGIN
         interiorsBlockFunctions: function () {
-            document.querySelector('.interiors-block__left-slider').style.height = document.querySelector('.interiors-block__left-slider > .swiper').height;
+            document.querySelector('.interiors-block__left-slider').style.height = document.querySelector('.interiors-block__left-slider .swiper-wrapper').height;
             
 
             const INTER_LEFT = new Swiper('.interiors-block__left-slider .swiper', {

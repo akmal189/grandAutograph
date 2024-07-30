@@ -2402,6 +2402,8 @@ p:last-child {
     display: -ms-flexbox;
     display: flex;
     gap: 20px;
+    position: static;
+    margin-top: 20px;
     /*.swiper-button-prev, .swiper-button-next {
         &:before {
             width: 64px;
@@ -2514,6 +2516,8 @@ p:last-child {
 .interiors-block__left-slider .slider-nav {
     right: 30px;
     bottom: 30px;
+    position: static;
+    margin-top: 20px;
 }
 @media all and (max-width: 1500px) {
     .interiors-block__left-slider .slider-nav {

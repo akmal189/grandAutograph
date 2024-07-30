@@ -1972,7 +1972,7 @@ p {
             position: absolute;
             bottom: 30px;
             right: 30px;
-            z-index: 1;
+            z-index: 5;
             display: flex;
             gap: 20px;
             @media all and (max-width: 1500px) {
@@ -2110,6 +2110,7 @@ p {
                 align-items: center;
                 justify-content: center;
                 padding: 0;
+                z-index: 5;
                 @media all and (max-width: 980px) {
                     display: none;
                 }

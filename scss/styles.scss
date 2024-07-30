@@ -2047,8 +2047,9 @@ p {
         }
         > .swiper {
             width: 100%;
-            overflow: hidden;
+            overflow: visible;
             .swiper-wrapper {
+                overflow: hidden;
                 transform-origin: bottom;
                 transform: translateY(100%);
                 transition: all 1s ease;
@@ -2218,11 +2219,13 @@ p {
         }
         > .swiper {
             width: 100%;
-            overflow: hidden;
+            //overflow: hidden;
+            overflow: visible;
             .swiper-wrapper {
                 transform-origin: bottom;
                 transform: translateY(100%);
                 transition: all 2s ease;
+                overflow: hidden;
             }
         }
         &:before {

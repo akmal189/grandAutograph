@@ -2484,9 +2484,10 @@ p:last-child {
 }
 .interiors-block__left-slider > .swiper {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 .interiors-block__left-slider > .swiper .swiper-wrapper {
+    overflow: hidden;
     -webkit-transform-origin: bottom;
             transform-origin: bottom;
     -webkit-transform: translateY(100%);
@@ -2685,7 +2686,7 @@ p:last-child {
 }
 .interiors-block__right-slider > .swiper {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 .interiors-block__right-slider > .swiper .swiper-wrapper {
     -webkit-transform-origin: bottom;
@@ -2694,6 +2695,7 @@ p:last-child {
             transform: translateY(100%);
     -webkit-transition: all 2s ease;
     transition: all 2s ease;
+    overflow: hidden;
 }
 .interiors-block__right-slider:before {
     content: "";

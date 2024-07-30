@@ -2035,6 +2035,9 @@ p {
         display: flex;
         align-items: flex-end;
         transition: all 0.5s ease;
+        .slider-inner {
+            width: 100%;
+        }
         &.showed {
             .swiper-wrapper .swiper-slide {
                 transform: translateY(0%);
@@ -2204,6 +2207,9 @@ p {
             .swiper-wrapper .swiper-slide {
                 transform: translateY(0%);
             }
+        }
+        .slider-inner {
+            width: 100%;
         }
         .swiper {
             width: 100%;

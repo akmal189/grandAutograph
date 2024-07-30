@@ -2474,6 +2474,9 @@ p:last-child {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+.interiors-block__left-slider .slider-inner {
+    width: 100%;
+}
 .interiors-block__left-slider.showed .swiper-wrapper .swiper-slide {
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
@@ -2673,6 +2676,9 @@ p:last-child {
 .interiors-block__right-slider.showed .swiper-wrapper .swiper-slide {
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
+}
+.interiors-block__right-slider .slider-inner {
+    width: 100%;
 }
 .interiors-block__right-slider .swiper {
     width: 100%;

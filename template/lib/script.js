@@ -465,9 +465,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'top 80%',
                         end: 'bottom 20%',
                         toggleActions: 'play',
-                    },
-                    onComplete: function () {
-                        console.log("Animation complete");
                     }
                 });
             })
@@ -484,7 +481,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             trigger: '.interiors-block',
                             start: 'top 40%',
                             end: 'bottom top',
-                            scrub: true
+                            scrub: true,
+                            stagger: 0.5,
+                            duration: 1
                         }
                     }
                 );
@@ -502,7 +501,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             trigger: image.closest('.image-item-wr'),
                             start: 'top 40%',
                             end: 'bottom top',
-                            scrub: true
+                            scrub: true,
+                            stagger: 0.5,
+                            duration: 1
                         }
                     }
                 );
@@ -520,7 +521,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             trigger: '.restaurants-block__bottom-slider',
                             start: 'top 40%',
                             end: 'bottom top',
-                            scrub: true
+                            scrub: true,
+                            stagger: 0.5,
+                            duration: 1
                         }
                     }
                 );
@@ -535,7 +538,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.citys-pearl',
                         start: 'top 100%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -549,7 +554,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.citys-pearl',
                         start: 'top 100%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -563,7 +570,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.citys-pearl',
                         start: 'bottom 80%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -577,7 +586,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.congress-block',
                         start: 'top 80%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -591,7 +602,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.congress-block',
                         start: 'bottom 70%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -604,7 +617,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.congress-block',
                         start: 'bottom 70%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -618,7 +633,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.congress-block',
                         start: 'bottom 70%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -632,7 +649,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.restaurants-block',
                         start: 'top 40%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -646,7 +665,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.map-block',
                         start: 'top 40%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -660,7 +681,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.interiors-block__left',
                         start: 'top 100%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -674,7 +697,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.restaurants-block__middle',
                         start: 'top 100%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );
@@ -688,7 +713,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         trigger: '.restaurants-block__middle',
                         start: 'top 100%',
                         end: 'bottom top',
-                        scrub: true
+                        scrub: true,
+                        stagger: 0.5,
+                        duration: 1
                     }
                 }
             );

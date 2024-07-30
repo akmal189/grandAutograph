@@ -3655,6 +3655,7 @@ p:last-child {
     right: 0;
     position: absolute;
     height: 206px;
+    z-index: 1;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(249, 249, 249, 0)), to(#f9f9f9));
     background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, #f9f9f9 100%);
 }

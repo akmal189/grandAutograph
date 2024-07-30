@@ -3270,6 +3270,12 @@ p:last-child {
     position: relative;
     z-index: 1;
 }
+@media all and (max-width: 980px) {
+    .announces-block__slider-item .item-header .item-btn a svg {
+        width: 16px;
+        height: 16px;
+    }
+}
 .announces-block__slider-item .item-header .item-btn a svg path {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;

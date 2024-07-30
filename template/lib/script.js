@@ -415,18 +415,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-            document.querySelectorAll('.congress-block__gallery-item').forEach((block, index) => {
-                let content = block;
+            document.querySelectorAll('.congress-block__gallery-item').forEach((blockItem, index) => {
+                let content = blockItem;
                 let contentHeight = content.offsetHeight;
                 
-                gsap.fromTo(block, 
+                gsap.fromTo(blockItem, 
                     {
                         height: 0
                     }, 
                     {
                         height: contentHeight,
                         scrollTrigger: {
-                            trigger: block,
+                            trigger: blockItem,
                             scroller: "[data-scroll-container]",
                             start: "top 50%",
                             end: "bottom top",
@@ -436,7 +436,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         },
                         duration: 1,
                         ease: "power2.out",
-                        delay: index * 0.2
+                        delay: index * 0.2,
+                        onComplete: () => site_scroll.update()
                     }
                 );
     
@@ -444,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     opacity: 1,
                     scrollTrigger: {
                         scroller: "[data-scroll-container]",
-                        trigger: block,
+                        trigger: blockItem,
                         start: "top 50%",
                         end: "bottom top",
                         scrub: false,
@@ -453,33 +454,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     duration: 1,
                     ease: "power2.out",
-                    delay: index * 0.2
+                    delay: index * 0.2,
+                    onComplete: () => site_scroll.update()
                 });
             });
-
-            /*gsap.fromTo('.interiors-block__left-slider > .swiper', 
-                {
-                    height: 0,
-                    opacity: 0
-                }, 
-                {
-                    height: document.querySelector('.interiors-block__left-slider > .swiper').offsetHeight,
-                    opacity: 1,
-                    scrollTrigger: {
-                        trigger: '.interiors-block',
-                        scroller: "[data-scroll-container]",
-                        start: "top 30%",
-                        end: "bottom top",
-                        scrub: false,
-                        markers: true,
-                        toggleActions: 'play'
-                    },
-                    duration: 1,
-                    ease: "power2.out"
-                }
-            );*/
-
-            
 
             let wordAnimate = document.querySelectorAll(".block-title"),
                 text,
@@ -533,29 +511,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             })
-            
-
-            /*const titles = document.querySelectorAll('.block-title');
-
-            titles.forEach((title) => {
-                const split = new SplitText(title, { type: 'words, chars' });
-                const chars = split.chars;
-
-                gsap.from(chars, {
-                    scrollTrigger: {
-                        scroller: "[data-scroll-container]",
-                        trigger: title,
-                        start: 'top 80%',
-                        end: 'bottom 20%',
-                        toggleActions: 'play',
-                    },
-                    opacity: 0,
-                    y: 50,
-                    stagger: 0.05,
-                    duration: 1,
-                    ease: 'power2.out'
-                });
-            });*/
 
             let interiors_images = document.querySelectorAll('.interiors-block img');
 
@@ -795,7 +750,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 );
             });
-
+            site_scroll.update()
         },
         // BLOCK ANIMATIONS END
 

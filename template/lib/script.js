@@ -284,86 +284,28 @@ document.addEventListener('DOMContentLoaded', function () {
         blockAnimations: function () {
             gsap.registerPlugin(ScrollTrigger/*, SplitText*/);
 
-            //site_scroll.on("scroll", ScrollTrigger.update);
+            const imageItems = document.querySelectorAll('.image-item-wr, .restaurants-block__bottom-slider, .interiors-block__left-slider, .interiors-block__right-slider, .announces-block__slider');
 
-            /*ScrollTrigger.scrollerProxy("[data-scroll-container]", {
-                scrollTop(value) {
-                    return arguments.length ? site_scroll.scrollTo(value, 0, 0) : site_scroll.scroll.instance.scroll.y;
-                },
-                getBoundingClientRect() {
-                    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-                },
-                pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
-            });
-
-            ScrollTrigger.addEventListener("refresh", () => site_scroll.update());
-            ScrollTrigger.refresh();*/
-
-            // Выбор элемента header
-            const header = document.querySelector('.site-header');
-
-            // Функция для добавления и удаления класса "fixed"
-            const handleScroll = () => {
-                /*let scrollPosition = site_scroll.scroll.instance.scroll.y;
-                if (scrollPosition > 0) {
-                    header.classList.add('fixed');
-                } else {
-                    header.classList.remove('fixed');
-                }*/
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.5 // процент видимости элемента (0.1 = 10%)
             };
-            let interLeftSlider = document.querySelector('.interiors-block__left-slider');
-            const interLSlider = () => {
-                let rect = interLeftSlider.getBoundingClientRect();
-                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
-                if (inView) {
-                    interLeftSlider.classList.add('showed');
+            
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('showed');
+                    observer.unobserve(entry.target); // прекратить наблюдение за элементом
                 }
-            };
-            let interRightSlider = document.querySelector('.interiors-block__right-slider');
-            const interRSlider = () => {
-                let rect = interRightSlider.getBoundingClientRect();
-                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
-                if (inView) {
-                    interRightSlider.classList.add('showed');
-                }
-            };
-
-            let announcesSlider = document.querySelector('.announces-block__slider');
-            const anSlider = () => {
-                let rect = announcesSlider.getBoundingClientRect();
-                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
-                if (inView) {
-                    announcesSlider.classList.add('showed');
-                }
-            };
-
-            let restoransImageItems = () => {
-                const blocks = document.querySelectorAll('.image-item-wr');
-                blocks.forEach(block => {
-                    let rect = block.getBoundingClientRect();
-                    let inView = rect.top + 400 < window.innerHeight && rect.bottom >= 0;
-                    if (inView) {
-                        block.classList.add('showed');
-                    }
                 });
-            }
-
-            let restSlider = document.querySelector('.restaurants-block__bottom-slider');
-            const restaurantsSlider = () => {
-                let rect = restSlider.getBoundingClientRect();
-                let inView = rect.top+400 < window.innerHeight && rect.bottom >= 0;
-                if (inView) {
-                    restSlider.classList.add('showed');
-                }
             };
-
-            // Добавление обработчика события прокрутки
-            /*site_scroll.on('scroll', handleScroll);
-            site_scroll.on('scroll', interLSlider);
-            site_scroll.on('scroll', interRSlider);
-            site_scroll.on('scroll', anSlider);
-            site_scroll.on('scroll', restoransImageItems);
-            site_scroll.on('scroll', restaurantsSlider);*/
+            
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            
+            imageItems.forEach(item => {
+                observer.observe(item);
+            });
 
             // Выбираем все элементы с классом 'citys-pearl__item'
             const items = document.querySelectorAll('.citys-pearl__item');
@@ -419,16 +361,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .citys-pearl__text, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-text");
             blocks.forEach((block) => {
-                gsap.set(block, { opacity: 0, y: 100 });
+                gsap.set(block, { opacity: 0, y: 150 });
 
                 ScrollTrigger.create({
                     trigger: block,
                     //scroller: "[data-scroll-container]",
                     start: "top 99%",
-                    stagger: 0.2, // Задержка между анимацией элементов
+                    stagger: 0.7, // Задержка между анимацией элементов
                     toggleActions: "play reverse play reverse",
                     onEnter: () => {
-                        gsap.to(block, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
+                        gsap.to(block, { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" });
                     }
                 });
             });

@@ -69,7 +69,6 @@ a {
     font-family: "Montserrat", sans-serif;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 ul {
@@ -2402,8 +2401,6 @@ p:last-child {
     display: -ms-flexbox;
     display: flex;
     gap: 20px;
-    position: static;
-    margin-top: 20px;
     /*.swiper-button-prev, .swiper-button-next {
         &:before {
             width: 64px;
@@ -2489,8 +2486,6 @@ p:last-child {
 .interiors-block__left-slider .swiper .swiper-slide {
     -webkit-transform-origin: bottom;
             transform-origin: bottom;
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
     -webkit-transition: all 1s ease;
     transition: all 1s ease;
 }
@@ -2516,8 +2511,6 @@ p:last-child {
 .interiors-block__left-slider .slider-nav {
     right: 30px;
     bottom: 30px;
-    position: static;
-    margin-top: 20px;
 }
 @media all and (max-width: 1500px) {
     .interiors-block__left-slider .slider-nav {
@@ -2690,8 +2683,6 @@ p:last-child {
 .interiors-block__right-slider .swiper .swiper-slide {
     -webkit-transform-origin: bottom;
             transform-origin: bottom;
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
     -webkit-transition: all 2s ease;
     transition: all 2s ease;
 }

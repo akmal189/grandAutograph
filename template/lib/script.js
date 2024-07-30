@@ -29,10 +29,28 @@ document.addEventListener('DOMContentLoaded', function () {
             const ROUTE_BTN = document.querySelector('.main-first__right-title');
             const LANG_BTN = document.querySelector('.site-header__langs-btn');
 
-            site_scroll = new LocomotiveScroll({
+            /*site_scroll = new LocomotiveScroll({
                 el: document.querySelector('[data-scroll-container]'),
                 smooth: true
-            });
+            });*/
+
+            const lenis = new Lenis({
+                // параметры настройки
+                lerp: 0.1, // коэффициент сглаживания (0 - 1)
+                smooth: true, // включить плавный скролл
+                direction: 'vertical', // направление скролла (vertical or horizontal)
+                smoothWheel: true, // плавный скролл колесом мыши
+                smoothTouch: false, // плавный скролл при касании (mobile)
+                infinite: false // бесконечный скролл
+              })
+              
+              // запуск анимации скролла
+              function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+              }
+              
+              requestAnimationFrame(raf)
 
             
     
@@ -266,9 +284,9 @@ document.addEventListener('DOMContentLoaded', function () {
         blockAnimations: function () {
             gsap.registerPlugin(ScrollTrigger/*, SplitText*/);
 
-            site_scroll.on("scroll", ScrollTrigger.update);
+            //site_scroll.on("scroll", ScrollTrigger.update);
 
-            ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+            /*ScrollTrigger.scrollerProxy("[data-scroll-container]", {
                 scrollTop(value) {
                     return arguments.length ? site_scroll.scrollTo(value, 0, 0) : site_scroll.scroll.instance.scroll.y;
                 },
@@ -279,19 +297,19 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             ScrollTrigger.addEventListener("refresh", () => site_scroll.update());
-            ScrollTrigger.refresh();
+            ScrollTrigger.refresh();*/
 
             // Выбор элемента header
             const header = document.querySelector('.site-header');
 
             // Функция для добавления и удаления класса "fixed"
             const handleScroll = () => {
-                let scrollPosition = site_scroll.scroll.instance.scroll.y;
+                /*let scrollPosition = site_scroll.scroll.instance.scroll.y;
                 if (scrollPosition > 0) {
                     header.classList.add('fixed');
                 } else {
                     header.classList.remove('fixed');
-                }
+                }*/
             };
             let interLeftSlider = document.querySelector('.interiors-block__left-slider');
             const interLSlider = () => {
@@ -340,12 +358,12 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             // Добавление обработчика события прокрутки
-            site_scroll.on('scroll', handleScroll);
+            /*site_scroll.on('scroll', handleScroll);
             site_scroll.on('scroll', interLSlider);
             site_scroll.on('scroll', interRSlider);
             site_scroll.on('scroll', anSlider);
             site_scroll.on('scroll', restoransImageItems);
-            site_scroll.on('scroll', restaurantsSlider);
+            site_scroll.on('scroll', restaurantsSlider);*/
 
             // Выбираем все элементы с классом 'citys-pearl__item'
             const items = document.querySelectorAll('.citys-pearl__item');
@@ -362,7 +380,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         y: 0,
                         scrollTrigger: {
                             trigger: item,
-                            scroller: "[data-scroll-container]",
+                            //scroller: "[data-scroll-container]",
                             start: "top 80%", // Настраиваем когда запускать анимацию
                             toggleActions: "play", // Настраиваем когда запускать и останавливать анимацию
                             stagger: 0.2 // Задержка между анимацией элементов
@@ -387,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         y: 0,
                         scrollTrigger: {
                             trigger: item,
-                            scroller: "[data-scroll-container]",
+                            //scroller: "[data-scroll-container]",
                             start: "top 80%", // Настраиваем когда запускать анимацию
                             toggleActions: "play", // Настраиваем когда запускать и останавливать анимацию
                             stagger: 0.1 // Задержка между анимацией элементов
@@ -405,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 ScrollTrigger.create({
                     trigger: block,
-                    scroller: "[data-scroll-container]",
+                    //scroller: "[data-scroll-container]",
                     start: "top 99%",
                     stagger: 0.2, // Задержка между анимацией элементов
                     toggleActions: "play reverse play reverse",
@@ -427,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         height: contentHeight,
                         scrollTrigger: {
                             trigger: blockItem,
-                            scroller: "[data-scroll-container]",
+                            //scroller: "[data-scroll-container]",
                             start: "top 50%",
                             end: "bottom top",
                             scrub: false,
@@ -437,14 +455,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         duration: 1,
                         ease: "power2.out",
                         delay: index * 0.2,
-                        onComplete: () => site_scroll.update()
+                        //onComplete: () => site_scroll.update()
                     }
                 );
     
                 gsap.to(content, {
                     opacity: 1,
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: blockItem,
                         start: "top 50%",
                         end: "bottom top",
@@ -455,7 +473,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     duration: 1,
                     ease: "power2.out",
                     delay: index * 0.2,
-                    onComplete: () => site_scroll.update()
+                    //onComplete: () => site_scroll.update()
                 });
             });
 
@@ -500,7 +518,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     stagger: 0.05, // Задержка между анимациями букв
                     ease: "power1.out",
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: item,
                         start: 'top 80%',
                         end: 'bottom 20%',
@@ -520,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     {
                         y: '10%',
                         scrollTrigger: {
-                            scroller: "[data-scroll-container]",
+                            //scroller: "[data-scroll-container]",
                             trigger: '.interiors-block',
                             start: 'top 40%',
                             end: 'bottom top',
@@ -538,7 +556,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     {
                         y: '10%',
                         scrollTrigger: {
-                            scroller: "[data-scroll-container]",
+                            //scroller: "[data-scroll-container]",
                             trigger: image.closest('.image-item-wr'),
                             start: 'top 40%',
                             end: 'bottom top',
@@ -556,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     {
                         y: '10%',
                         scrollTrigger: {
-                            scroller: "[data-scroll-container]",
+                            //scroller: "[data-scroll-container]",
                             trigger: '.restaurants-block__bottom-slider',
                             start: 'top 40%',
                             end: 'bottom top',
@@ -571,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-30%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.citys-pearl',
                         start: 'top 100%',
                         end: 'bottom top',
@@ -585,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-40%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.citys-pearl',
                         start: 'top 100%',
                         end: 'bottom top',
@@ -599,7 +617,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-20%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.citys-pearl',
                         start: 'bottom 80%',
                         end: 'bottom top',
@@ -613,7 +631,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-30%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.congress-block',
                         start: 'top 80%',
                         end: 'bottom top',
@@ -627,7 +645,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-20%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.congress-block',
                         start: 'bottom 70%',
                         end: 'bottom top',
@@ -640,7 +658,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-30%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.congress-block',
                         start: 'bottom 70%',
                         end: 'bottom top',
@@ -654,7 +672,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-205%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.congress-block',
                         start: 'bottom 70%',
                         end: 'bottom top',
@@ -668,7 +686,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-30%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.restaurants-block',
                         start: 'top 40%',
                         end: 'bottom top',
@@ -682,7 +700,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-30%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.map-block',
                         start: 'top 40%',
                         end: 'bottom top',
@@ -696,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-100%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.interiors-block__left',
                         start: 'top 100%',
                         end: 'bottom top',
@@ -710,7 +728,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-100%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.restaurants-block__middle',
                         start: 'top 100%',
                         end: 'bottom top',
@@ -724,7 +742,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     y: '-30%',
                     scrollTrigger: {
-                        scroller: "[data-scroll-container]",
+                        //scroller: "[data-scroll-container]",
                         trigger: '.restaurants-block__middle',
                         start: 'top 100%',
                         end: 'bottom top',
@@ -741,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     {
                         y: '10%',
                         scrollTrigger: {
-                            scroller: "[data-scroll-container]",
+                            //scroller: "[data-scroll-container]",
                             trigger: '.congress-block',
                             start: 'top 40%',
                             end: 'bottom top',
@@ -750,7 +768,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 );
             });
-            site_scroll.update()
+            //site_scroll.update()
         },
         // BLOCK ANIMATIONS END
 

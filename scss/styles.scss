@@ -58,7 +58,7 @@ a {
 * {
     font-family: "Montserrat", sans-serif;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    //scroll-behavior: smooth;
 }
 ul {
     margin: 0;
@@ -1975,8 +1975,6 @@ p {
             z-index: 5;
             display: flex;
             gap: 20px;
-            position: static;
-            margin-top: 20px;
             @media all and (max-width: 1500px) {
                 bottom: 30px;
                 right: 30px;
@@ -2049,7 +2047,7 @@ p {
             width: 100%;
             .swiper-slide {
                 transform-origin: bottom;
-                transform: translateY(100%);
+                //transform: translateY(100%);
                 transition: all 1s ease;
             }
         }
@@ -2071,8 +2069,6 @@ p {
         .slider-nav {
             right: 30px;
             bottom: 30px;
-            position: static;
-            margin-top: 20px;
             @media all and (max-width: 1500px) {
                 right: 30px;
                 bottom: 30px;
@@ -2219,7 +2215,7 @@ p {
             width: 100%;
             .swiper-slide {
                 transform-origin: bottom;
-                transform: translateY(100%);
+                //transform: translateY(100%);
                 transition: all 2s ease;
             }
         }

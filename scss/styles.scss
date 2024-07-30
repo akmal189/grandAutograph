@@ -2031,7 +2031,7 @@ p {
         position: relative;
         margin-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
         font-size: 0;
-        overflow: hidden;
+        //overflow: hidden;
         display: flex;
         align-items: flex-end;
         transition: all 0.5s ease;
@@ -2227,7 +2227,7 @@ p {
     }
     &__right-slider {
         position: relative;
-        overflow: hidden;
+        //overflow: hidden;
         opacity: 0;
         transition: all 0.5s ease;
         &.showed {

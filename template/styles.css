@@ -2466,7 +2466,6 @@ p:last-child {
     position: relative;
     margin-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
     font-size: 0;
-    overflow: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2700,7 +2699,6 @@ p:last-child {
 }
 .interiors-block__right-slider {
     position: relative;
-    overflow: hidden;
     opacity: 0;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;

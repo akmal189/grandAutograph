@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 smooth: true
             });*/
 
-            let lenis = new Lenis({
+            lenis = new Lenis({
                 // параметры настройки
                 lerp: 0.1, // коэффициент сглаживания (0 - 1)
                 smooth: true, // включить плавный скролл
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 smoothTouch: false, // плавный скролл при касании (mobile)
                 infinite: false // бесконечный скролл
             })
-              
+
             // запуск анимации скролла
             function raf(time) {
                 lenis.raf(time)
                 requestAnimationFrame(raf)
             }
-              
+
             requestAnimationFrame(raf);
 
             if (IsMobile) {
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 BURGER_BTN.classList.toggle('active')
                 BURGER_BLOCK.classList.toggle('opened')
                 document.documentElement.classList.toggle('overflow-hidden')
-                if(BURGER_BTN.classList.contains('active')) {
+                if (BURGER_BTN.classList.contains('active')) {
                     lenis.stop();
                 } else {
                     lenis.start();
@@ -127,6 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('.fixed-btns__list').classList.toggle('active')
                 });
             }
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('fixed-btns__popup-btn-s') && !e.target.classList.contains('fixed-btns__btn-a')) {
+                    document.querySelector('.fixed-btns__popup-btn-s').classList.remove('active');
+                    document.querySelector('.fixed-btns__list').classList.remove('active')
+                }
+            })
 
             let phoneInputs = document.querySelectorAll('.phone_field');
             let maskOptions = {
@@ -182,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // INTERIORS BLOCK BEGIN
         interiorsBlockFunctions: function () {
             document.querySelector('.interiors-block__left-slider').style.height = document.querySelector('.interiors-block__left-slider .swiper-wrapper').height;
-            
+
 
             const INTER_LEFT = new Swiper('.interiors-block__left-slider .swiper', {
                 slidesPerView: 1,
@@ -199,6 +206,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 download: false,
                 counter: true,
                 selector: 'a.slider-item__image'
+            });
+
+            document.querySelector('.interiors-block__left-slider').addEventListener('onAfterOpen', function () {
+                lenis.stop(); // Остановить Lenis при открытии галереи
+            });
+            document.querySelector('.interiors-block__left-slider').addEventListener('onBeforeClose', function () {
+                lenis.start(); // Возобновить Lenis при открытии галереи
             });
 
             const INTER_RIGHT = new Swiper('.interiors-block__right-slider .swiper', {
@@ -284,6 +298,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 counter: true,
                 selector: 'a'
             });
+
+            document.querySelector('.congress-block__gallery').addEventListener('onAfterOpen', function () {
+                lenis.stop(); // Остановить Lenis при открытии галереи
+            });
+            document.querySelector('.congress-block__gallery').addEventListener('onBeforeClose', function () {
+                lenis.start(); // Возобновить Lenis при открытии галереи
+            });
         },
         // CONGRESS BLOCK END
 
@@ -298,23 +319,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 rootMargin: '80px',
                 threshold: 0.5 // процент видимости элемента (0.1 = 10%)
             };
-            
+
             const observerCallback = (entries, observer) => {
                 const visibleEntries = entries.filter(entry => entry.isIntersecting);
-            
+
                 visibleEntries.forEach((entry, index) => {
-                  // Убираем наблюдение, чтобы избежать повторных вызовов
-                  observer.unobserve(entry.target);
-            
-                  // Используем setTimeout для добавления класса с задержкой
-                  setTimeout(() => {
-                    entry.target.classList.add('showed');
-                  }, index * 1000); // задержка 200мс между добавлением классов
+                    // Убираем наблюдение, чтобы избежать повторных вызовов
+                    observer.unobserve(entry.target);
+
+                    // Используем setTimeout для добавления класса с задержкой
+                    setTimeout(() => {
+                        entry.target.classList.add('showed');
+                    }, index * 1000); // задержка 200мс между добавлением классов
                 });
             };
-            
+
             const observer = new IntersectionObserver(observerCallback, observerOptions);
-            
+
             imageItems.forEach(item => {
                 observer.observe(item);
             });
@@ -390,11 +411,11 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.congress-block__gallery-item').forEach((blockItem, index) => {
                 let content = blockItem;
                 let contentHeight = content.offsetHeight;
-                
-                gsap.fromTo(blockItem, 
+
+                gsap.fromTo(blockItem,
                     {
                         height: 0
-                    }, 
+                    },
                     {
                         height: contentHeight,
                         scrollTrigger: {
@@ -412,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         //onComplete: () => site_scroll.update()
                     }
                 );
-    
+
                 gsap.to(content, {
                     opacity: 1,
                     scrollTrigger: {
@@ -755,13 +776,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // FOOTER SCRIPTS BEGIN
         footerScripts: function () {
-            document.querySelectorAll('.site-footer__menu ul li.hasChild > a .arrow').forEach((item) => {
+            /*document.querySelectorAll('.site-footer__menu ul li.hasChild > a .arrow').forEach((item) => {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.target.classList.toggle('active')
                     e.target.closest('li').querySelector('ul').classList.toggle('opened')
                 });
-            })
+            })*/
+
+            var linkToggle = document.querySelectorAll('.site-footer__menu ul li.hasChild > a .arrow');
+
+            for (i = 0; i < linkToggle.length; i++) {
+
+                linkToggle[i].addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.target.classList.toggle('active');
+                    event.target.closest('li').classList.toggle('active');
+                    var container = event.target.parentNode.nextElementSibling;
+
+                    if (!container.classList.contains('active')) {
+
+                        container.classList.add('active');
+                        container.style.height = 'auto';
+
+                        var height = container.clientHeight + 'px';
+
+                        container.style.height = '0px';
+
+                        setTimeout(function () {
+                            container.style.height = height;
+                        }, 0);
+
+                    } else {
+
+                        container.style.height = '0px';
+
+                        container.addEventListener('transitionend', function () {
+                            container.classList.remove('active');
+                        }, {
+                            once: true
+                        });
+
+                    }
+
+                });
+
+            }
         }
         // FOOTER SCRIPTS END
     }

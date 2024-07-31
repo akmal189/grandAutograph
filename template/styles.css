@@ -50,7 +50,6 @@ h1, h2, h3, h4, h5, h6 {
 
 img, video, iframe {
     max-width: 100%;
-    will-change: transform;
 }
 
 a {
@@ -2157,11 +2156,6 @@ p:last-child {
         gap: 5px;
     }
 }
-.citys-pearl__top-image img {
-    will-change: transform;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
 @media all and (max-width: 1500px) {
     .citys-pearl__top-image .small-pearl img {
         max-width: 163.5px;
@@ -2178,9 +2172,6 @@ p:last-child {
     }
 }
 .citys-pearl__top-image .medium-pearl {
-    will-change: transform;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
     overflow: hidden;
 }
 @media all and (max-width: 1500px) {
@@ -2330,11 +2321,6 @@ p:last-child {
     .citys-pearl__bottom-image {
         display: none;
     }
-}
-.citys-pearl__bottom-image img {
-    will-change: transform;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
 }
 @media all and (max-width: 1500px) {
     .citys-pearl__bottom-image img {
@@ -2756,11 +2742,6 @@ p:last-child {
         display: none;
     }
 }
-.interiors-block__pearl img {
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    will-change: transform;
-}
 
 /* INTERIORS BLOCK END */
 /* CONGRESS BLOCK BEGIN */
@@ -2782,9 +2763,6 @@ p:last-child {
     top: 20px;
     right: clamp(10rem, 5.75rem + 8.3333vw, 15rem);
     font-size: 0;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    will-change: transform;
 }
 @media all and (max-width: 1500px) {
     .congress-block__top-pearl {
@@ -2987,11 +2965,6 @@ p:last-child {
         -webkit-transform: translateY(150px);
                 transform: translateY(150px);
     }
-}
-.congress-block__bottom-pearls > div {
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    will-change: transform;
 }
 .congress-block__bottom-pearls .big {
     margin-top: 40px;
@@ -3318,8 +3291,6 @@ p:last-child {
     right: 0;
     overflow: hidden;
     top: 20px;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
     font-size: 0;
 }
 @media all and (max-width: 1500px) {
@@ -3704,8 +3675,6 @@ p:last-child {
     }
     .restaurants-block__mobile-pearls > div {
         will-change: transform;
-        -webkit-transition: all 0.2s ease;
-        transition: all 0.2s ease;
         font-size: 0;
     }
 }
@@ -3879,13 +3848,9 @@ p:last-child {
 }
 .map-block__pearl {
     position: absolute;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
     font-size: 0;
-    will-change: transform;
     top: 100px;
     left: -35px;
-    will-change: transform;
 }
 @media all and (max-width: 1500px) {
     .map-block__pearl img {

@@ -44,7 +44,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 img,video,iframe {
     max-width: 100%;
-    will-change: transform;
 }
 a {
     text-decoration: none;
@@ -1792,10 +1791,6 @@ p {
             right: -20px;
             gap: 5px;
         }
-        img {
-            will-change: transform;
-            transition: all .2s ease;
-        }
         .small-pearl {
             img {
                 @media all and (max-width: 1500px) {
@@ -1810,8 +1805,6 @@ p {
             }
         }
         .medium-pearl {
-            will-change: transform;
-            transition: all .2s ease;
             overflow: hidden;
             img {
                 @media all and (max-width: 1500px) {
@@ -1925,8 +1918,6 @@ p {
             display: none;
         }
         img {
-            will-change: transform;
-            transition: all .2s ease;
             @media all and (max-width: 1500px) {
                 max-width: 344px;
             }
@@ -2275,10 +2266,6 @@ p {
         @media all and (max-width: 550px) {
             display: none;
         }
-        img {
-            transition: all .2s ease;
-            will-change: transform;
-        }
     }
 }
 /* INTERIORS BLOCK END */
@@ -2301,8 +2288,6 @@ p {
         top: 20px;
         right: clamp(10rem, 5.75rem + 8.3333vw, 15rem);
         font-size: 0;
-        transition: all .2s ease;
-        will-change: transform;
         @media all and (max-width: 1500px) {
             right: clamp(3rem, -12.25rem + 8.3333vw, 15rem);
             overflow: hidden;
@@ -2450,10 +2435,6 @@ p {
         gap: 30px;
         @media all and (max-width: 1260px) {
             transform: translateY(150px);
-        }
-        > div {
-            transition: all .2s ease;
-            will-change: transform;
         }
         .big {
             margin-top: 40px;
@@ -2716,7 +2697,6 @@ p {
         right: 0;
         overflow: hidden;
         top: 20px;
-        transition: all .2s ease;
         font-size: 0;
         @media all and (max-width: 1500px) {
             right: 25px;
@@ -3008,7 +2988,6 @@ p {
             right: -20px;
             > div {
                 will-change: transform;
-                transition: all .2s ease;
                 font-size: 0;
             }
         }
@@ -3146,12 +3125,9 @@ p {
     }
     &__pearl {
         position: absolute;
-        transition: all .2s ease;
         font-size: 0;
-        will-change: transform;
         top: 100px;
         left: -35px;
-        will-change: transform;
         img {
             @media all and (max-width: 1500px) {
                 max-width: 223px;

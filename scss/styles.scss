@@ -91,7 +91,7 @@ p {
     overflow: hidden;
 }
 .site-wrapper {
-    background: url('../include/images/site_bg.svg') top 900px left 50% no-repeat rgb(var(--bar-name-color));
+    //background: url('../include/images/site_bg.svg') top 900px left 50% no-repeat rgb(var(--bar-name-color));
 }
 .block-padding {
     padding: 0 clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
@@ -1361,10 +1361,12 @@ p {
     &__title {
         position: absolute;
         left: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
-        right: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
         //top: clamp(18.5rem, 14.25rem + 8.3333vw, 24.75rem);
         bottom: 30vw;
         transition: all 2s ease;
+        @media all and (max-width: 1920px) {
+            right: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
+        }
         @media all and (max-width: 1500px) {
             bottom: 29vw;
         }
@@ -2356,7 +2358,6 @@ p {
         width: 50%;
         position: relative;
         overflow: hidden;
-        transform-origin: bottom;
         &:hover {
             z-index: 2;
         }

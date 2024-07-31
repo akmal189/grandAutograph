@@ -42,18 +42,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 smoothWheel: true, // плавный скролл колесом мыши
                 smoothTouch: false, // плавный скролл при касании (mobile)
                 infinite: false // бесконечный скролл
-              })
+            })
               
-              // запуск анимации скролла
-              function raf(time) {
+            // запуск анимации скролла
+            function raf(time) {
                 lenis.raf(time)
                 requestAnimationFrame(raf)
-              }
+            }
               
-              requestAnimationFrame(raf)
-
-            
-    
+            requestAnimationFrame(raf);
 
             if (IsMobile) {
                 LANG_BTN.addEventListener('click', (e) => {
@@ -288,16 +285,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const observerOptions = {
                 root: null, // viewport
-                rootMargin: '0px',
+                rootMargin: '80px',
                 threshold: 0.5 // процент видимости элемента (0.1 = 10%)
             };
             
             const observerCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                const visibleEntries = entries.filter(entry => entry.isIntersecting);
+            
+                visibleEntries.forEach((entry, index) => {
+                  // Убираем наблюдение, чтобы избежать повторных вызовов
+                  observer.unobserve(entry.target);
+            
+                  // Используем setTimeout для добавления класса с задержкой
+                  setTimeout(() => {
                     entry.target.classList.add('showed');
-                    observer.unobserve(entry.target); // прекратить наблюдение за элементом
-                }
+                  }, index * 1000); // задержка 200мс между добавлением классов
                 });
             };
             

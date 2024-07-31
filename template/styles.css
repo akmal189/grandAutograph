@@ -29,6 +29,10 @@
     overflow: hidden !important;
 }
 
+body.lg-on {
+    overflow: hidden;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -889,6 +893,7 @@ p:last-child {
     left: 0;
     z-index: 10;
     padding-top: clamp(9rem, 1.75rem + 8.3333vw, 11.25rem);
+    overflow: hidden;
 }
 @media all and (max-width: 980px) {
     .burger-block {
@@ -3477,6 +3482,14 @@ p:last-child {
         margin-top: -100px;
     }
 }
+@media all and (max-width: 980px) {
+    .restaurants-block__top-blocks + .restaurants-block__middle {
+        margin-top: -180px;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+}
 @media all and (max-width: 550px) {
     .restaurants-block__top-blocks + .restaurants-block__middle {
         margin-top: 0;
@@ -3602,6 +3615,12 @@ p:last-child {
             align-self: center;
     }
 }
+@media all and (max-width: 980px) {
+    .restaurants-block__middle-image {
+        width: 73.6%;
+        padding-right: 0;
+    }
+}
 @media all and (max-width: 550px) {
     .restaurants-block__middle-image {
         width: 100%;
@@ -3621,8 +3640,8 @@ p:last-child {
     position: absolute;
     height: 206px;
     z-index: 1;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(249, 249, 249, 0)), to(#f9f9f9));
-    background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, #f9f9f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(249, 249, 249, 0)), to(#fff));
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, #fff 100%);
 }
 .restaurants-block__middle-body {
     width: 43.5%;
@@ -3631,6 +3650,11 @@ p:last-child {
 @media all and (max-width: 1366px) {
     .restaurants-block__middle-body {
         width: auto;
+    }
+}
+@media all and (max-width: 980px) {
+    .restaurants-block__middle-body {
+        padding-bottom: 20px;
     }
 }
 .restaurants-block__middle-desc {

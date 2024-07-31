@@ -27,6 +27,9 @@
 .overflow-hidden {
     overflow: hidden !important;
 }
+body.lg-on {
+    overflow: hidden;
+}
 html,body {
     margin: 0;
     padding: 0;
@@ -738,6 +741,7 @@ p {
     left: 0;
     z-index: 10;
     padding-top: clamp(9rem, 1.75rem + 8.3333vw, 11.25rem);
+    overflow: hidden;
     @media all and (max-width: 980px) {
         padding-top: 120px;
     }
@@ -2836,6 +2840,10 @@ p {
             @media all and (max-width: 1366px) {
                 margin-top: -100px;
             }
+            @media all and (max-width: 980px) {
+                margin-top: -180px;
+                align-items: center;
+            }
             @media all and (max-width: 550px) {
                 margin-top: 0;
             }
@@ -2922,6 +2930,10 @@ p {
         @media all and (max-width: 1366px) {
             align-self: center;
         }
+        @media all and (max-width: 980px) {
+            width: 73.6%;
+            padding-right: 0;
+        }
         @media all and (max-width: 550px) {
             width: 100%;
             padding-right: 0;
@@ -2939,7 +2951,7 @@ p {
             position: absolute;
             height: 206px;
             z-index: 1;
-            background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, #f9f9f9 100%);
+            background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, #fff 100%);
         }
     }
     &__middle-body {
@@ -2947,6 +2959,9 @@ p {
         padding-bottom: clamp(1rem, -1.25rem + 8.3333vw, 3.125rem);
         @media all and (max-width: 1366px) {
             width: auto;
+        }
+        @media all and (max-width: 980px) {
+            padding-bottom: 20px;
         }
     }
     &__middle-desc {

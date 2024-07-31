@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 (function () {
     let IsMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-        site_scroll;
+        site_scroll,
+        lenis;
     myObj.queue = {
         // HEADER BEGIN
         headerFunctions: function () {
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 smooth: true
             });*/
 
-            const lenis = new Lenis({
+            let lenis = new Lenis({
                 // параметры настройки
                 lerp: 0.1, // коэффициент сглаживания (0 - 1)
                 smooth: true, // включить плавный скролл
@@ -98,18 +99,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 BURGER_BTN.classList.toggle('active')
                 BURGER_BLOCK.classList.toggle('opened')
                 document.documentElement.classList.toggle('overflow-hidden')
+                if(BURGER_BTN.classList.contains('active')) {
+                    lenis.stop();
+                } else {
+                    lenis.start();
+                }
             });
 
             TAXI_BTN.addEventListener('click', (e) => {
                 e.target.classList.toggle('active')
                 document.querySelector('.popup-form').classList.toggle('opened')
                 document.documentElement.classList.add('overflow-hidden')
+                lenis.stop();
             });
 
             document.addEventListener('click', (e) => {
                 if (e.target.classList.contains('popup-form') || e.target.classList.contains('popup-form__closer')) {
                     document.querySelector('.popup-form').classList.remove('opened');
                     document.documentElement.classList.remove('overflow-hidden')
+                    lenis.start();
                 }
             })
 
@@ -129,10 +137,10 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             VIDEO_BTN.addEventListener('click', () => {
-                document.querySelector('.main-first__video').classList.add('active')
+                /*document.querySelector('.main-first__video').classList.add('active')
                 setTimeout(function () {
                     document.querySelector('.main-first__video video').play()
-                }, 500)
+                }, 500)*/
             });
 
             let videoContainer = document.querySelector('.main-first__video');
@@ -143,11 +151,13 @@ document.addEventListener('DOMContentLoaded', function () {
             ROUTE_BTN.addEventListener('click', () => {
                 document.querySelector('.popup-map').classList.add('opened')
                 document.documentElement.classList.add('overflow-hidden')
+                lenis.stop();
             });
             document.addEventListener('click', (e) => {
                 if (e.target.classList.contains('popup-map') || e.target.classList.contains('popup-map__closer')) {
                     document.querySelector('.popup-map').classList.remove('opened');
                     document.documentElement.classList.remove('overflow-hidden')
+                    lenis.start();
                 }
             })
 

@@ -896,14 +896,13 @@ p:last-child {
     background: url("../include/images/burger_bg.png") 50%/cover no-repeat fixed rgb(var(--accent-color));
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-    top: 0;
+    bottom: 0;
     right: 0;
     left: 0;
     z-index: 10;
     padding-top: clamp(9rem, 1.75rem + 8.3333vw, 11.25rem);
     overflow: hidden;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 @media all and (max-width: 980px) {
     .burger-block {
@@ -913,6 +912,7 @@ p:last-child {
 .burger-block.opened {
     -webkit-transform: translateY(0);
             transform: translateY(0);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
 }
 .burger-block__inner {
     border-top: 1px solid rgba(var(--white), 0.15);

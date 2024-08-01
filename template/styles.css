@@ -894,8 +894,8 @@ p:last-child {
     height: 100vh;
     position: fixed;
     background: url("../include/images/burger_bg.png") 50%/cover no-repeat fixed rgb(var(--accent-color));
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     bottom: 0;
     right: 0;
     left: 0;

@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 loop: true,
                 effect: 'slide',
                 speed: 1000,
-                spaceBetween: 0,
+                spaceBetween: 10,
                 navigation: {
                     nextEl: '.announces-block .swiper-button-next',
                     prevEl: '.announces-block .swiper-button-prev',

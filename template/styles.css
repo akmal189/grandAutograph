@@ -3704,6 +3704,7 @@ p:last-child {
 @media all and (max-width: 550px) {
     .restaurants-block__top-right {
         width: 100%;
+        margin-bottom: 20px;
     }
 }
 .restaurants-block__top-right .image-item-wr .image {

@@ -749,17 +749,13 @@ p {
     z-index: 10;
     padding-top: clamp(7rem, 1.75rem + 8.3333vw, 7rem);
     overflow: hidden;
-    @media all and (min-width: 981px) {
-        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-    }
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
     @media all and (max-width: 980px) {
         padding-top: 120px;
     }
     &.opened {
         //transform: translateY(0);
-        @media all and (min-width: 981px) {
-            clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-        }
+        clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
     }
     &__inner {
         border-top: 1px solid rgba(var(--white), .15);

@@ -743,7 +743,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         end: 'bottom top',
                         scrub: true,
                         stagger: 1,
-                        duration: 2
+                        duration: 20
                     }
                 }
             );
@@ -759,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         end: 'bottom top',
                         scrub: true,
                         stagger: 1,
-                        duration: 2
+                        duration: 20
                     }
                 }
             );

@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             lenis = new Lenis({
                 // параметры настройки
-                lerp: 0.1, // коэффициент сглаживания (0 - 1)
+                lerp: 0.08, // коэффициент сглаживания (0 - 1)
                 smooth: true, // включить плавный скролл
                 direction: 'vertical', // направление скролла (vertical or horizontal)
                 smoothWheel: true, // плавный скролл колесом мыши
-                smoothTouch: false, // плавный скролл при касании (mobile)
+                smoothTouch: true, // плавный скролл при касании (mobile)
                 infinite: false // бесконечный скролл
             })
 

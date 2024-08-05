@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 smooth: true, // включить плавный скролл
                 direction: 'vertical', // направление скролла (vertical or horizontal)
                 smoothWheel: true, // плавный скролл колесом мыши
-                smoothTouch: true, // плавный скролл при касании (mobile)
+                smoothTouch: false, // плавный скролл при касании (mobile)
                 infinite: false // бесконечный скролл
             })
 

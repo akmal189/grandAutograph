@@ -171,14 +171,22 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!IsMobile) {
                 document.querySelectorAll('.burger-block__menu ul li a').forEach((item) => {
                     item.addEventListener('mouseenter', () => {
-                        if (item.dataset.img) {
+                        if(!item.classList.contains('active')) {
                             document.querySelector('.burger-block__image').classList.add('v_hidden');
-                            setTimeout(() => {
-                                document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
-                                document.querySelector('.burger-block__image').classList.remove('v_hidden')
-                            }, 300)
-                        } else {
-                            document.querySelector('.burger-block__image').classList.add('v_hidden')
+                            document.querySelector('.burger-block__image').classList.remove('scale')
+                            document.querySelectorAll('.burger-block__menu ul li a').forEach((element) => element.classList.remove('active'));
+                            if (item.dataset.img) {
+                                setTimeout(() => {
+                                    item.classList.add('active')
+                                    document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
+                                    document.querySelector('.burger-block__image').classList.remove('v_hidden')
+                                }, 300)
+                                setTimeout(() => {
+                                    document.querySelector('.burger-block__image').classList.add('scale')
+                                }, 600)
+                            } else {
+                                document.querySelector('.burger-block__image').classList.add('v_hidden');
+                            }
                         }
                     })
                 })
@@ -381,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         scrollTrigger: {
                             trigger: item,
                             //scroller: "[data-scroll-container]",
-                            start: "top 80%", // Настраиваем когда запускать анимацию
+                            start: "top 99%", // Настраиваем когда запускать анимацию
                             toggleActions: "play", // Настраиваем когда запускать и останавливать анимацию
                             stagger: 0.1 // Задержка между анимацией элементов
                         },
@@ -394,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const blocks = document.querySelectorAll(".congress-block__text p, .map-block__text, .restaurants-block__bottom-slider, .restaurants-block__bottom-right .text p, .restaurants-block__bottom-right .title, .restaurants-block__middle-body > div, .restaurants-block__middle-image, .restaurants-block__body .image-item-wr, .restaurants-block__top-right > .title, .announces-block__slider-item .item-header, .announces-block__slider-item .item-title, .announces-block__slider-item .item-body, .citys-pearl__text, .interiors-block__left-text, .interiors-block__left-bigText, .interiors-block__right-text");
             blocks.forEach((block) => {
-                gsap.set(block, { opacity: 0, y: 150 });
+                gsap.set(block, { opacity: 0, y: 100 });
 
                 ScrollTrigger.create({
                     trigger: block,
@@ -403,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     stagger: 0.7, // Задержка между анимацией элементов
                     toggleActions: "play reverse play reverse",
                     onEnter: () => {
-                        gsap.to(block, { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" });
+                        gsap.to(block, { opacity: 1, y: 0, duration: 2, ease: "power2.out" });
                     }
                 });
             });
@@ -588,40 +596,40 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'top 100%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 1,
+                        duration: 2
                     }
                 }
             );
 
             gsap.fromTo(document.querySelector('.citys-pearl .big-pearl img'),
-                { y: '20%' },
+                { y: '25%' },
                 {
-                    y: '-20%',
+                    y: '-25%',
                     scrollTrigger: {
                         //scroller: "[data-scroll-container]",
                         trigger: '.citys-pearl',
                         start: 'bottom 80%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 2,
+                        duration: 20
                     }
                 }
             );
 
             gsap.fromTo(document.querySelector('.congress-block .congress-block__top-pearl'),
-                { y: '30%' },
+                { y: '40%' },
                 {
-                    y: '-30%',
+                    y: '-40%',
                     scrollTrigger: {
                         //scroller: "[data-scroll-container]",
                         trigger: '.congress-block',
                         start: 'top 80%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 1,
+                        duration: 5
                     }
                 }
             );
@@ -636,39 +644,41 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'bottom 70%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 1,
+                        duration: 5
                     }
                 }
             );
             gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .medium'),
-                { y: '30%' },
+                { y: '20%' },
                 {
-                    y: '-30%',
+                    y: '-20%',
                     scrollTrigger: {
                         //scroller: "[data-scroll-container]",
-                        trigger: '.congress-block',
+                        trigger: '.congress-block__body',
                         start: 'bottom 70%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 11,
+                        ease: "power2.inOut",
+                        duration: 115
                     }
                 }
             );
 
             gsap.fromTo(document.querySelector('.congress-block__bottom-pearls .small'),
-                { y: '105%' },
+                { y: '55%' },
                 {
-                    y: '-205%',
+                    y: '-55%',
                     scrollTrigger: {
                         //scroller: "[data-scroll-container]",
-                        trigger: '.congress-block',
+                        trigger: '.congress-block__body',
                         start: 'bottom 70%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 11,
+                        ease: "power2.inOut",
+                        duration: 115
                     }
                 }
             );
@@ -683,8 +693,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'top 40%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 1,
+                        duration: 2
                     }
                 }
             );
@@ -699,8 +709,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'top 40%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        ease: "power2.inOut",
+                        stagger: 2,
+                        duration: 5
                     }
                 }
             );
@@ -715,8 +726,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'top 100%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 1,
+                        duration: 2
                     }
                 }
             );
@@ -731,8 +742,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'top 100%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 1,
+                        duration: 2
                     }
                 }
             );
@@ -747,8 +758,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: 'top 100%',
                         end: 'bottom top',
                         scrub: true,
-                        stagger: 0.5,
-                        duration: 1
+                        stagger: 1,
+                        duration: 2
                     }
                 }
             );

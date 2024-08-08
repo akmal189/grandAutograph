@@ -293,7 +293,8 @@ p {
         background: rgb(var(--accent-color));
         & ~ .burger-block {
             @media all and (max-width: 980px) {
-                padding-top: 70px;
+                border-top: 70px solid transparent;
+                padding-top: 0;
             }
         }
         .site-header__inner {
@@ -751,7 +752,8 @@ p {
     overflow: hidden;
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
     @media all and (max-width: 980px) {
-        padding-top: 120px;
+        border-top: 120px solid transparent;
+        padding-top: 0;
     }
     &.opened {
         //transform: translateY(0);
@@ -795,6 +797,9 @@ p {
                     transition: all 0.5s ease;
                     &:hover {
                         color: rgb(var(--white));
+                    }
+                    @media all and (max-width: 980px) {
+                        font-size: 20px;
                     }
                 }
             }
@@ -847,6 +852,7 @@ p {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: space-between;
         //gap: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
     }
     &__contacts {
@@ -870,6 +876,9 @@ p {
             @media all and (max-width: 980px) {
                 margin-right: 20px;
                 margin-bottom: 30px;
+            }
+            &:last-child {
+                margin-right: 0;
             }
             > div:first-child {
                 margin-bottom: 10px;
@@ -950,12 +959,13 @@ p {
         font-weight: bold;
     }
     &__presentation {
-        margin-right: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
+        padding-right: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
+        margin-right: auto;
         @media all and (max-width: 1100px) {
-            margin-top: 30px;
+            padding-top: 30px;
         }
         @media all and (max-width: 980px) {
-            margin-top: 0;
+            padding-top: 0;
         }
         a {
             display: flex;
@@ -1028,6 +1038,9 @@ p {
     }
     &__socials-item {
         margin-right: clamp(1rem, -8.25rem + 8.3333vw, 1.25rem);
+        &:last-child {
+            margin-right: 0;
+        }
         a {
             width: 60px;
             height: 60px;
@@ -2904,7 +2917,7 @@ p {
             .logo {
                 display: none;
                 @media all and (max-width: 1500px) {
-                    display: block;
+                    //display: block;
                     position: absolute;
                     pointer-events: none;
                     z-index: 1;

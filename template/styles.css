@@ -349,7 +349,8 @@ p:last-child {
 }
 @media all and (max-width: 980px) {
     .site-header.fixed ~ .burger-block {
-        padding-top: 70px;
+        border-top: 70px solid transparent;
+        padding-top: 0;
     }
 }
 .site-header.fixed .site-header__inner {
@@ -908,7 +909,8 @@ p:last-child {
 }
 @media all and (max-width: 980px) {
     .burger-block {
-        padding-top: 120px;
+        border-top: 120px solid transparent;
+        padding-top: 0;
     }
 }
 .burger-block.opened {
@@ -961,6 +963,11 @@ p:last-child {
 .burger-block__menu ul li a:hover {
     color: rgb(var(--white));
 }
+@media all and (max-width: 980px) {
+    .burger-block__menu ul li a {
+        font-size: 20px;
+    }
+}
 .burger-block__image {
     width: calc(33% - 21px);
     margin-left: 21px;
@@ -1011,6 +1018,9 @@ p:last-child {
             align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .burger-block__contacts {
     display: -webkit-box;
@@ -1053,6 +1063,9 @@ p:last-child {
         margin-right: 20px;
         margin-bottom: 30px;
     }
+}
+.burger-block__contacts > div:last-child {
+    margin-right: 0;
 }
 .burger-block__contacts > div > div:first-child {
     margin-bottom: 10px;
@@ -1106,16 +1119,17 @@ p:last-child {
     font-weight: bold;
 }
 .burger-block__presentation {
-    margin-right: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
+    padding-right: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
+    margin-right: auto;
 }
 @media all and (max-width: 1100px) {
     .burger-block__presentation {
-        margin-top: 30px;
+        padding-top: 30px;
     }
 }
 @media all and (max-width: 980px) {
     .burger-block__presentation {
-        margin-top: 0;
+        padding-top: 0;
     }
 }
 .burger-block__presentation a {
@@ -1208,6 +1222,9 @@ p:last-child {
 }
 .burger-block__socials-item {
     margin-right: clamp(1rem, -8.25rem + 8.3333vw, 1.25rem);
+}
+.burger-block__socials-item:last-child {
+    margin-right: 0;
 }
 .burger-block__socials-item a {
     width: 60px;
@@ -3550,7 +3567,6 @@ p:last-child {
 }
 @media all and (max-width: 1500px) {
     .restaurants-block__body .image-item-wr .logo {
-        display: block;
         position: absolute;
         pointer-events: none;
         z-index: 1;

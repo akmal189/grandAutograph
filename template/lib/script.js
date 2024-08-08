@@ -191,6 +191,49 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                 })
             }
+
+            let linkToggle = document.querySelectorAll('.burger-block__menu ul li.hasChild > a');
+
+            for (i = 0; i < linkToggle.length; i++) {
+
+                linkToggle[i].addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.target.classList.toggle('active');
+                    if(event.target.querySelector('.arrow')) {
+                        event.target.querySelector('.arrow').classList.toggle('active');
+                    }
+                    console.log(event.target.querySelector('.arrow'))
+                    event.target.closest('li').classList.toggle('active');
+                    let container = event.target.nextElementSibling;
+
+                    if (!container.classList.contains('active')) {
+
+                        container.classList.add('active');
+                        container.style.height = 'auto';
+
+                        let height = container.clientHeight + 'px';
+
+                        container.style.height = '0px';
+
+                        setTimeout(function () {
+                            container.style.height = height;
+                        }, 0);
+
+                    } else {
+
+                        container.style.height = '0px';
+
+                        container.addEventListener('transitionend', function () {
+                            container.classList.remove('active');
+                        }, {
+                            once: true
+                        });
+
+                    }
+
+                });
+
+            }
         },
         // HEADER END
 
@@ -795,22 +838,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             })*/
 
-            var linkToggle = document.querySelectorAll('.site-footer__menu ul li.hasChild > a .arrow');
+            let linkToggle = document.querySelectorAll('.site-footer__menu ul li.hasChild > a');
 
             for (i = 0; i < linkToggle.length; i++) {
 
                 linkToggle[i].addEventListener('click', function (event) {
                     event.preventDefault();
                     event.target.classList.toggle('active');
+                    if(event.target.querySelector('.arrow')) {
+                        event.target.querySelector('.arrow').classList.toggle('active');
+                    }
+                    console.log(event.target.querySelector('.arrow'))
                     event.target.closest('li').classList.toggle('active');
-                    var container = event.target.parentNode.nextElementSibling;
+                    let container = event.target.nextElementSibling;
 
                     if (!container.classList.contains('active')) {
 
                         container.classList.add('active');
                         container.style.height = 'auto';
 
-                        var height = container.clientHeight + 'px';
+                        let height = container.clientHeight + 'px';
 
                         container.style.height = '0px';
 

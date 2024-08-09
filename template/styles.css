@@ -1221,19 +1221,17 @@ p:last-child {
     }
 }
 .burger-block__presentation a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     gap: clamp(1rem, -8.25rem + 8.3333vw, 1.25rem);
     font-weight: 400;
     font-size: clamp(1rem, -8.25rem + 8.3333vw, 1.25rem);
     line-height: 130%;
-    text-decoration: underline;
+    text-decoration: none;
     color: rgb(var(--white));
     max-width: 250px;
+    padding-left: calc(60px + 1rem);
+    position: relative;
+    display: block;
+    cursor: pointer;
 }
 .burger-block__presentation a:hover {
     text-decoration: none;
@@ -1246,6 +1244,16 @@ p:last-child {
 }
 .burger-block__presentation a:hover .icon svg path {
     fill: rgb(var(--primary));
+}
+.burger-block__presentation a:hover span {
+    border-color: transparent;
+}
+.burger-block__presentation a span {
+    border-bottom: 1px solid rgb(var(--white));
+    display: inline;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 .burger-block__presentation a .icon {
     width: 60px;
@@ -1262,6 +1270,14 @@ p:last-child {
         -ms-flex-pack: center;
             justify-content: center;
     position: relative;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    cursor: pointer;
 }
 .burger-block__presentation a .icon:before {
     content: "";
@@ -2303,7 +2319,7 @@ p:last-child {
         padding: 40px 88px;
     }
 }
-@media all and (max-width: 550px) {
+@media all and (max-width: 767px) {
     .reservation-block__inner {
         padding: 40px 20px;
     }

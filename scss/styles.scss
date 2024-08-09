@@ -1045,15 +1045,19 @@ p {
             display: none;
         }
         a {
-            display: flex;
-            align-items: center;
+            // display: flex;
+            // align-items: center;
             gap: clamp(1rem, -8.25rem + 8.3333vw, 1.25rem);
             font-weight: 400;
             font-size: clamp(1rem, -8.25rem + 8.3333vw, 1.25rem);
             line-height: 130%;
-            text-decoration: underline;
+            text-decoration: none;
             color: rgb(var(--white));
             max-width: 250px;
+            padding-left: calc(60px + 1rem);
+            position: relative;
+            display: block;
+            cursor: pointer;
             &:hover {
                 text-decoration: none;
                 .icon {
@@ -1065,6 +1069,17 @@ p {
                         fill: rgb(var(--primary));
                     }
                 }
+
+                span {
+                    border-color: transparent;
+                }
+            }
+
+            span {
+                border-bottom: 1px solid rgb(var(--white));
+                display: inline;
+                cursor: pointer;
+                transition: all 0.5s ease;
             }
             .icon {
                 width: 60px;
@@ -1075,6 +1090,13 @@ p {
                 align-items: center;
                 justify-content: center;
                 position: relative;
+                transition: all .5s;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                cursor: pointer;
                 &:before {
                     content: '';
                     top: 0;
@@ -1921,7 +1943,7 @@ p {
             background: rgb(var(--white));
             padding: 40px 88px;
         }
-        @media all and (max-width: 550px) {
+        @media all and (max-width: 767px) {
             padding: 40px 20px;
         }
     }

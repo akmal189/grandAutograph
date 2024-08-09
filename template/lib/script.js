@@ -98,11 +98,17 @@ document.addEventListener('DOMContentLoaded', function () {
             BURGER_BTN.addEventListener('click', () => {
                 BURGER_BTN.classList.toggle('active')
                 BURGER_BLOCK.classList.toggle('opened')
+
                 document.documentElement.classList.toggle('overflow-hidden')
                 if (BURGER_BTN.classList.contains('active')) {
                     lenis.stop();
+                    
+                    setTimeout(function(){
+                        document.querySelector('.burger-block__image').classList.add('scale');
+                    }, 500);
                 } else {
                     lenis.start();
+                    document.querySelector('.burger-block__image').classList.remove('scale');
                 }
             });
 
@@ -172,20 +178,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelectorAll('.burger-block__menu ul li a').forEach((item) => {
                     item.addEventListener('mouseenter', () => {
                         if(!item.classList.contains('active')) {
-                            document.querySelector('.burger-block__image').classList.add('v_hidden');
-                            document.querySelector('.burger-block__image').classList.remove('scale')
+                            //document.querySelector('.burger-block__image').classList.add('v_hidden');
+                            //document.querySelector('.burger-block__image').classList.remove('scale')
+                            document.querySelector('.burger-block__image').remove();
                             document.querySelectorAll('.burger-block__menu ul li a').forEach((element) => element.classList.remove('active'));
                             if (item.dataset.img) {
+                                item.classList.add('active')
+                                    const burgerBlock = document.createElement('div');
+                                    burgerBlock.classList.add('burger-block__image');
+                                    const burgerImage = document.createElement('img')
+                                    burgerImage.src = item.dataset.img;
+                                    burgerImage.alt = 'burger_image';
+                                    burgerBlock.appendChild(burgerImage);
+                                    document.querySelector('.burger-block__top').appendChild(burgerBlock);
                                 setTimeout(() => {
-                                    item.classList.add('active')
-                                    document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
-                                    document.querySelector('.burger-block__image').classList.remove('v_hidden')
+                                    //document.querySelector('.burger-block__image img').setAttribute('src', item.dataset.img)
+                                    //document.querySelector('.burger-block__image').classList.remove('v_hidden')
                                 }, 300)
                                 setTimeout(() => {
                                     document.querySelector('.burger-block__image').classList.add('scale')
-                                }, 600)
+                                }, 300)
                             } else {
-                                document.querySelector('.burger-block__image').classList.add('v_hidden');
+                                //document.querySelector('.burger-block__image').classList.add('v_hidden');
                             }
                         }
                     })

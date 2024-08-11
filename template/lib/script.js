@@ -449,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         scrollTrigger: {
                             trigger: item,
                             //scroller: "[data-scroll-container]",
-                            start: "top 99%", // Настраиваем когда запускать анимацию
+                            start: "top 110%", // Настраиваем когда запускать анимацию
                             toggleActions: "play", // Настраиваем когда запускать и останавливать анимацию
                             stagger: 0.1 // Задержка между анимацией элементов
                         },

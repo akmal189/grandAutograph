@@ -930,7 +930,7 @@ p:last-child {
 }
 @media all and (max-width: 1440px) {
     .burger-block {
-        padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
+        border-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem) solid transparent;
     }
     .burger-block.fixed {
         padding-top: 0;

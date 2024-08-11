@@ -782,8 +782,8 @@ p {
     }
 
     @media all and (max-width: 1440px) {
-        padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
-
+        //padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
+        border-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem) solid transparent;
         &.fixed {
             //padding-top: 60px;
             padding-top: 0;

@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
             
             if(isIPhone && IsMobile) {
                 document.querySelector('.burger-block__inner').classList.add('iphone-padding');
-            } else if (navigator.userAgent.indexOf('CriOS') >= 0 && isIPhone) {
+            } 
+            if (navigator.userAgent.indexOf('CriOS') >= 0 && isIPhone) {
                 document.querySelector('.burger-block__inner').classList.add('iphone-padding-chrome');
             }
 

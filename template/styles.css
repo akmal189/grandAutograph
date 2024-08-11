@@ -930,7 +930,7 @@ p:last-child {
 }
 @media all and (max-width: 1440px) {
     .burger-block {
-        border-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem) solid transparent;
+        padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
     }
     .burger-block.fixed {
         padding-top: 0;
@@ -944,6 +944,9 @@ p:last-child {
     }
     .burger-block .burger-block__inner {
         padding-top: 120px;
+    }
+    .burger-block .burger-block__inner.iphone-padding {
+        padding-top: 190px;
     }
 }
 .burger-block.opened {

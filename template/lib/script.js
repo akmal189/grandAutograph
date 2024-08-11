@@ -29,12 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
             const VIDEO_BTN = document.querySelector('.main-first__video-btn');
             const ROUTE_BTN = document.querySelector('.main-first__right-title');
             const LANG_BTN = document.querySelector('.site-header__langs-btn');
+            const isIPhone = /iPhone/i.test(navigator.userAgent);
 
 
             /*site_scroll = new LocomotiveScroll({
                 el: document.querySelector('[data-scroll-container]'),
                 smooth: true
             });*/
+            
+            if(isIPhone && IsMobile) {
+                BURGER_BLOCK.classList.add('iphone-padding');
+            }
 
             lenis = new Lenis({
                 // параметры настройки

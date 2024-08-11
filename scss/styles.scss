@@ -782,8 +782,7 @@ p {
     }
 
     @media all and (max-width: 1440px) {
-        //padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
-        border-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem) solid transparent;
+        padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
         &.fixed {
             //padding-top: 60px;
             padding-top: 0;
@@ -795,9 +794,11 @@ p {
         //border-top: 120px solid transparent;
         border-top: none;
         padding-top: 0;
-
         .burger-block__inner {
             padding-top: 120px;
+            &.iphone-padding {
+                padding-top: 190px;
+            }
         }
     }
     &.opened {

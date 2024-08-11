@@ -297,8 +297,11 @@ p {
         & ~ .burger-block {
             @media all and (max-width: 980px) {
                 border-top: none;
-                padding-top: 0;
-                top: 60px;
+                padding-top: 60px;
+
+                .burger-block__inner {
+                    padding-top: 10px;
+                }
             }
         }
         .site-header__inner {
@@ -787,7 +790,11 @@ p {
     @media all and (max-width: 980px) {
         //border-top: 120px solid transparent;
         border-top: none;
-        padding-top: 120px;
+        padding-top: 0;
+
+        .burger-block__inner {
+            padding-top: 120px;
+        }
     }
     &.opened {
         //transform: translateY(0);

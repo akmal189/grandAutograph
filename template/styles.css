@@ -350,8 +350,10 @@ p:last-child {
 @media all and (max-width: 980px) {
     .site-header.fixed ~ .burger-block {
         border-top: none;
-        padding-top: 0;
-        top: 60px;
+        padding-top: 60px;
+    }
+    .site-header.fixed ~ .burger-block .burger-block__inner {
+        padding-top: 10px;
     }
 }
 .site-header.fixed .site-header__inner {
@@ -936,6 +938,9 @@ p:last-child {
 @media all and (max-width: 980px) {
     .burger-block {
         border-top: none;
+        padding-top: 0;
+    }
+    .burger-block .burger-block__inner {
         padding-top: 120px;
     }
 }

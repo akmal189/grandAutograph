@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const ROUTE_BTN = document.querySelector('.main-first__right-title');
             const LANG_BTN = document.querySelector('.site-header__langs-btn');
 
+
             /*site_scroll = new LocomotiveScroll({
                 el: document.querySelector('[data-scroll-container]'),
                 smooth: true
@@ -79,10 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             document.addEventListener('scroll', () => {
                 if (window.scrollY > 0) {
-                    HEADER_WR.classList.add('fixed')
+                    HEADER_WR.classList.add('fixed');
+                    document.querySelector('.burger-block').classList.add('fixed');
                     document.querySelector('.site-header__langs-list').classList.remove('active');
                 } else {
                     HEADER_WR.classList.remove('fixed')
+                    document.querySelector('.burger-block').classList.remove('fixed');
                 }
             });
             if (window.scrollY > 0) {
@@ -489,7 +492,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             start: "top 50%",
                             end: "bottom top",
                             scrub: false,
-                            markers: true,
                             toggleActions: 'play'
                         },
                         duration: 1,
@@ -507,7 +509,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         start: "top 50%",
                         end: "bottom top",
                         scrub: false,
-                        markers: true,
                         toggleActions: 'play'
                     },
                     duration: 1,
@@ -894,7 +895,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
             }
-        }
+        },
         // FOOTER SCRIPTS END
+        historyBlock: function(){
+            const HISTORY_BTN = document.querySelector('.btn_history');
+
+            HISTORY_BTN.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.target.classList.toggle('active')
+                document.querySelector('.history_popup').classList.toggle('opened')
+                document.documentElement.classList.add('overflow-hidden')
+                //lenis.stop();
+            });
+
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('history_popup') || e.target.classList.contains('history_popup__closer')) {
+                    document.querySelector('.history_popup').classList.remove('opened');
+                    document.documentElement.classList.remove('overflow-hidden')
+                    //lenis.start();
+                }
+            })
+        }
     }
 }())

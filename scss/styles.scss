@@ -296,9 +296,9 @@ p {
 
         & ~ .burger-block {
             @media all and (max-width: 980px) {
-                border-top: none;
-                padding-top: 60px;
-
+                //padding-top: 60px;
+                padding-top: 0;
+                border-top: 80px solid transparent;
                 .burger-block__inner {
                     padding-top: 10px;
                 }
@@ -775,7 +775,9 @@ p {
         
 
         &.fixed {
-            padding-top: 80px;
+            //padding-top: 80px;
+            padding-top: 0;
+            border-top: 80px solid transparent;
         }
     }
 
@@ -783,7 +785,9 @@ p {
         padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
 
         &.fixed {
-            padding-top: 60px;
+            //padding-top: 60px;
+            padding-top: 0;
+            border-top: 60px solid transparent;
         }
     }
 

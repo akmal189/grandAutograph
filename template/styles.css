@@ -350,7 +350,8 @@ p:last-child {
 @media all and (max-width: 980px) {
     .site-header.fixed ~ .burger-block {
         border-top: none;
-        padding-top: 60px;
+        padding-top: 0;
+        top: 60px;
     }
 }
 .site-header.fixed .site-header__inner {
@@ -1507,7 +1508,7 @@ p:last-child {
 @media all and (max-width: 980px) {
     .site-footer__menu ul li:not(.last-item) a {
         font-weight: 300;
-        font-size: 30px;
+        font-size: 20px;
         line-height: 212%;
         text-transform: uppercase;
         margin: 0;

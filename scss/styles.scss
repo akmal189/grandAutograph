@@ -297,7 +297,8 @@ p {
         & ~ .burger-block {
             @media all and (max-width: 980px) {
                 border-top: none;
-                padding-top: 60px;
+                padding-top: 0;
+                top: 60px;
             }
         }
         .site-header__inner {
@@ -1302,7 +1303,7 @@ p {
                     line-height: 1.4;
                     @media all and (max-width: 980px) {
                         font-weight: 300;
-                        font-size: 30px;
+                        font-size: 20px;
                         line-height: 212%;
                         text-transform: uppercase;
                         margin: 0;

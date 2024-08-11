@@ -947,6 +947,10 @@ p:last-child {
     height: 100%;
     overflow: auto;
     padding-bottom: clamp(2.25rem, -5.25rem + 8.3333vw, 3.75rem);
+    scrollbar-width: none;
+}
+.burger-block__inner::-webkit-scrollbar {
+    display: none;
 }
 @media all and (max-width: 980px) {
     .burger-block__inner {
@@ -5055,6 +5059,9 @@ p:last-child {
         -ms-flex-align: center;
             align-items: center;
     z-index: 10;
+}
+.history_popup__closer svg {
+    pointer-event: none;
 }
 .history_popup .title {
     font-weight: 700;

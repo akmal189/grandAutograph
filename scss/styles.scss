@@ -3100,17 +3100,17 @@ p {
                 padding-top: 79.3%;
                 transition: all 2s ease;
                 transform: translateY(100%);
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    background: rgba(var(--slider-btns-hover), .6);
-                    mix-blend-mode: exclusion;
-                    z-index: 1;
-                }
+                // &:before {
+                //     content: '';
+                //     position: absolute;
+                //     top: 0;
+                //     right: 0;
+                //     bottom: 0;
+                //     left: 0;
+                //     background: rgba(var(--slider-btns-hover), .6);
+                //     mix-blend-mode: exclusion;
+                //     z-index: 1;
+                // }
                 img {
                     height: 120%;
                     width: 100%;

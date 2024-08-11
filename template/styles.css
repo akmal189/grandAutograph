@@ -948,6 +948,9 @@ p:last-child {
     .burger-block .burger-block__inner.iphone-padding {
         padding-top: 190px;
     }
+    .burger-block .burger-block__inner.iphone-padding-chrome {
+        padding-top: 215px;
+    }
 }
 .burger-block.opened {
     clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);

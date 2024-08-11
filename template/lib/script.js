@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });*/
             
             if(isIPhone && IsMobile) {
-                BURGER_BLOCK.classList.add('iphone-padding');
+                document.querySelector('.burger-block__inner').classList.add('iphone-padding');
             }
 
             lenis = new Lenis({

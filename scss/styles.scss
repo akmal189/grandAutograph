@@ -785,8 +785,9 @@ p {
     }
 
     @media all and (max-width: 980px) {
-        border-top: 120px solid transparent;
-        padding-top: 0;
+        //border-top: 120px solid transparent;
+        border-top: none;
+        padding-top: 120px;
     }
     &.opened {
         //transform: translateY(0);

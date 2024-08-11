@@ -935,8 +935,8 @@ p:last-child {
 }
 @media all and (max-width: 980px) {
     .burger-block {
-        border-top: 120px solid transparent;
-        padding-top: 0;
+        border-top: none;
+        padding-top: 120px;
     }
 }
 .burger-block.opened {

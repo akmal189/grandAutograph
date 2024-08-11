@@ -5061,7 +5061,7 @@ p:last-child {
     z-index: 10;
 }
 .history_popup__closer svg {
-    pointer-event: none;
+    pointer-events: none;
 }
 .history_popup .title {
     font-weight: 700;

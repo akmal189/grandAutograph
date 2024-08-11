@@ -349,8 +349,8 @@ p:last-child {
 }
 @media all and (max-width: 980px) {
     .site-header.fixed ~ .burger-block {
-        border-top: 50px solid transparent;
-        padding-top: 0;
+        border-top: none;
+        padding-top: 60px;
     }
 }
 .site-header.fixed .site-header__inner {

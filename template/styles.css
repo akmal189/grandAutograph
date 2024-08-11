@@ -349,8 +349,8 @@ p:last-child {
 }
 @media all and (max-width: 980px) {
     .site-header.fixed ~ .burger-block {
-        border-top: none;
-        padding-top: 60px;
+        padding-top: 0;
+        border-top: 60px solid transparent;
     }
     .site-header.fixed ~ .burger-block .burger-block__inner {
         padding-top: 10px;
@@ -924,7 +924,8 @@ p:last-child {
 }
 @media all and (min-width: 1441px) {
     .burger-block.fixed {
-        padding-top: 80px;
+        padding-top: 0;
+        border-top: 80px solid transparent;
     }
 }
 @media all and (max-width: 1440px) {
@@ -932,7 +933,8 @@ p:last-child {
         padding-top: clamp(9rem, 1.75rem + 8.3333vw, 7rem);
     }
     .burger-block.fixed {
-        padding-top: 60px;
+        padding-top: 0;
+        border-top: 60px solid transparent;
     }
 }
 @media all and (max-width: 980px) {

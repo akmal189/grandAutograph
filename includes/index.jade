@@ -8,7 +8,11 @@ include _header.jade
                 <div class="main-first__mobile-wr"></div>
                 <div class="main-first__right-title">остановиться здесь</div>
                 <div class="main-first__image">
-                    <img src="include/images/main-f-bl.png" alt="main-f-bl">
+                    <picture class="picture header">
+                        <source media="(min-width: 768px)" srcset="include/images/main-f-bl2.png">
+                        <source media="(max-width: 767px)" srcset="include/images/main-f-bl.png">
+                        <img src="include/images/main-f-bl2.png" alt="map_image">
+                    </picture>
                 </div>
                 <div class="main-first__title">
                     <svg class="first-letter" width="192" height="247" viewBox="0 0 192 247" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -492,7 +496,7 @@ include _header.jade
         <div class="map-block__image">
             <picture class="picture header">
                 <source media="(min-width: 520px)" srcset="include/images/map_image.png">
-                <source media="(max-width: 519px)" srcset="include/images/map_mobile-block_image.svg">
+                <source media="(max-width: 519px)" srcset="include/images/map_mobile-block_image.png">
                 <img src="include/images/map_image.png" alt="map_image">
             </picture>
         </div>

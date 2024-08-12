@@ -1687,7 +1687,8 @@ p {
     }
     &__title {
         position: absolute;
-        //left: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
+        left: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
+        right: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
         //top: clamp(18.5rem, 14.25rem + 8.3333vw, 24.75rem);
         bottom: 30vw;
         transition: all 2s ease;
@@ -1732,6 +1733,14 @@ p {
         @media all and (max-width: 440px) {
             bottom: 40vw;
         } 
+        @media all and (max-width: 1260px) {
+            left: 40px;
+            right: 40px;
+        }
+        @media all and (max-width: 550px) {
+            left: 20px;
+            right: 20px;
+        }
         &.active {
             opacity: 1;
             svg path {
@@ -1812,6 +1821,9 @@ p {
         padding-right: clamp(6.25rem, -1.25rem + 8.3333vw, 9.25rem);
         @media all and (max-width: 1260px) {
             font-size: 14px;
+        }
+        @media all and (max-width: 980px) {
+            padding-right: 40px;
         }
         @media all and (max-width: 767px) {
             width: 100%;

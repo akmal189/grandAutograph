@@ -1959,6 +1959,8 @@ p:last-child {
 }
 .main-first__title {
     position: absolute;
+    left: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
+    right: clamp(6.25rem, -1.25rem + 8.3333vw, 8.125rem);
     bottom: 30vw;
     -webkit-transition: all 2s ease;
     transition: all 2s ease;
@@ -2017,6 +2019,18 @@ p:last-child {
 @media all and (max-width: 440px) {
     .main-first__title {
         bottom: 40vw;
+    }
+}
+@media all and (max-width: 1260px) {
+    .main-first__title {
+        left: 40px;
+        right: 40px;
+    }
+}
+@media all and (max-width: 550px) {
+    .main-first__title {
+        left: 20px;
+        right: 20px;
     }
 }
 .main-first__title.active {
@@ -2117,6 +2131,11 @@ p:last-child {
 @media all and (max-width: 1260px) {
     .main-first__text {
         font-size: 14px;
+    }
+}
+@media all and (max-width: 980px) {
+    .main-first__text {
+        padding-right: 40px;
     }
 }
 @media all and (max-width: 767px) {

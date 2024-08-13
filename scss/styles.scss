@@ -4588,3 +4588,16 @@ p {
         }
     }
 }
+
+.site-header.fixed {
+    .site-header__langs-list {
+        width: 100%;
+        // @media all and (max-width: 1440px) {
+        //     width: 40px;
+        // }
+
+        // @media all and (max-width: 1440px) {
+        //     width: 40px;
+        // }
+    }
+}

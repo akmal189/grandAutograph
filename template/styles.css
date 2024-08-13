@@ -5427,3 +5427,7 @@ p:last-child {
         font-size: 12px;
     }
 }
+
+.site-header.fixed .site-header__langs-list {
+    width: 100%;
+}

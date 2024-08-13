@@ -1866,6 +1866,9 @@ p:last-child {
 .main-first {
     height: 100vh;
     min-height: 1190px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 @media all and (max-width: 1800px) {
     .main-first {
@@ -1885,14 +1888,7 @@ p:last-child {
 @media all and (max-width: 1260px) {
     .main-first {
         min-height: 625px;
-    }
-}
-@media all and (max-width: 1023px) {
-    .main-first {
         height: auto;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
     }
 }
 @media all and (max-width: 767px) {
@@ -1911,8 +1907,9 @@ p:last-child {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    height: 100%;
     position: relative;
+    width: 100%;
+    height: auto;
 }
 @media all and (max-width: 1023px) {
     .main-first__inner {
@@ -4316,14 +4313,17 @@ p:last-child {
 /* RESTAURANTS BLOCK END */
 /* MAP BLOCK BEGIN */
 .map-block {
-    min-height: 125vh;
+    height: 125vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    max-height: 1200px;
 }
 @media all and (max-width: 1260px) {
     .map-block {
         min-height: 0;
+        height: auto;
+        max-height: unset;
     }
 }
 .map-block__inner {

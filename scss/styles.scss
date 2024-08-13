@@ -1630,6 +1630,7 @@ p {
 .main-first {
     height: 100vh;
     min-height: 1190px;
+    display: flex;
     @media all and (max-width: 1800px) {
         min-height: 1030px;
     }
@@ -1641,10 +1642,7 @@ p {
     }
     @media all and (max-width: 1260px) {
         min-height: 625px;
-    }
-    @media all and (max-width: 1023px) {
         height: auto;
-        display: flex;
     }
     @media all and (max-width: 767px) {
         min-height: 788px;
@@ -1655,8 +1653,9 @@ p {
     &__inner {
         display: flex;
         flex-wrap: wrap;
-        height: 100%;
         position: relative;
+        width: 100%;
+        height: auto;
         @media all and (max-width: 1023px) {
             flex: auto;
             height: auto;
@@ -3547,10 +3546,13 @@ p {
 
 /* MAP BLOCK BEGIN */
 .map-block {
-    min-height: 125vh;
+    height: 125vh;
     display: flex;
+    max-height: 1200px;
     @media all and (max-width: 1260px) {
         min-height: 0;
+        height: auto;
+        max-height: unset;
     }
     &__inner {
         position: relative;

@@ -946,10 +946,25 @@ p:last-child {
         padding-top: 120px;
     }
     .burger-block .burger-block__inner.iphone-padding {
-        padding-top: 190px;
+        padding-top: 190px !important;
     }
     .burger-block .burger-block__inner.iphone-padding-chrome {
-        padding-top: 215px;
+        padding-top: 215px !important;
+    }
+}
+@media all and (max-width: 767px) {
+    .burger-block {
+        border-top: none;
+        padding-top: 0;
+    }
+    .burger-block .burger-block__inner {
+        padding-top: 120px;
+    }
+    .burger-block .burger-block__inner.iphone-padding {
+        padding-top: 115px !important;
+    }
+    .burger-block .burger-block__inner.iphone-padding-chrome {
+        padding-top: 115px !important;
     }
 }
 .burger-block.opened {

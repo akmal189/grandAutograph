@@ -961,10 +961,10 @@ p:last-child {
         padding-top: 120px;
     }
     .burger-block .burger-block__inner.iphone-padding {
-        padding-top: 115px !important;
+        padding-top: 80px !important;
     }
     .burger-block .burger-block__inner.iphone-padding-chrome {
-        padding-top: 115px !important;
+        padding-top: 80px !important;
     }
 }
 .burger-block.opened {

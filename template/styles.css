@@ -5446,3 +5446,12 @@ p:last-child {
 .site-header.fixed .site-header__langs-list {
     width: 100%;
 }
+
+.button_link {
+    padding-top: 20px;
+}
+@media all and (max-width: 767px) {
+    .button_link {
+        padding: 10px 0;
+    }
+}

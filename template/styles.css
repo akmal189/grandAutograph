@@ -5079,7 +5079,7 @@ p:last-child {
     }
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 1324px) {
     html {
         overflow: hidden;
     }

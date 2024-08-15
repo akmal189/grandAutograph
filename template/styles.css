@@ -2023,7 +2023,7 @@ p:last-child {
 }
 @media all and (max-width: 550px) {
     .main-first__title {
-        bottom: 43vw;
+        bottom: 45vw;
         left: 20px;
         right: 20px;
     }
@@ -2035,7 +2035,7 @@ p:last-child {
 }
 @media all and (max-width: 440px) {
     .main-first__title {
-        bottom: 40vw;
+        bottom: 45vw;
     }
 }
 @media all and (max-width: 1260px) {

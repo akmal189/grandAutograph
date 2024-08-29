@@ -949,11 +949,10 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         },
         accordion: function(){
-            const FREE_VACANCIE = document.querySelector('.free_vacancie');
 
-            if(!FREE_VACANCIE) return;
+            const accor = document.querySelectorAll('.accor_block');
 
-            const accor = FREE_VACANCIE.querySelectorAll('.item .accor_block');
+            if(!accor) return;            
 
             function slideToggle(element, duration = 600) {
                 let isCollapsed = window.getComputedStyle(element).display === 'none';
@@ -1128,6 +1127,109 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             })
-        }
+        },
+        cardSlider: function(){
+            const cardImage = document.querySelector('.swiper_card_slider');
+
+            if(!cardImage) return;
+
+            const sliderBlock = cardImage.querySelector('.swiper');
+            const pagination = cardImage.querySelector('.pagination_block');
+
+            const slider = new Swiper('.swiper_card_slider .swiper', {
+                slidesPerView: 1,
+                loop: true,
+                effect: 'slide',
+                speed: 1000,
+                spaceBetween: 0,
+                pagination: {
+                    el: `.${pagination.className}`,
+                    clickable: true,
+                }
+            });
+        },
+        reviewSlider: function(){
+            const reviewWrapper = document.querySelector('.review_slider_wrapper');
+
+            if(!reviewWrapper) return;   
+
+            const slider = new Swiper('.swiper_review_slider', {
+                slidesPerView: 3,
+                loop: true,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.review_slider_wrapper .swiper-button-next',
+                    prevEl: '.review_slider_wrapper .swiper-button-prev',
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2,
+                        spaceBetween: 10
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    1441: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    }
+                }
+            });
+        },
+        roomsSlider: function(){
+            const roomWrapper = document.querySelector('.rooms_slider_wrapper');
+
+            if(!roomWrapper) return; 
+
+            const slider = new Swiper('.swiper_slider_room', {
+                slidesPerView: 4,
+                loop: true,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.rooms_slider_wrapper .swiper-button-next',
+                    prevEl: '.rooms_slider_wrapper .swiper-button-prev',
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2,
+                        spaceBetween: 10
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    1441: {
+                        slidesPerView: 4,
+                        spaceBetween: 20
+                    }
+                }
+            });
+        },
+        pressModal: function(){
+            const pressBtn = document.querySelectorAll('.announces-block__slider-item');
+
+            if(!pressBtn) return;
+
+            pressBtn.forEach((item) => {
+                const btn = item.querySelector('.item-btn a');
+                
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.target.classList.toggle('active')
+                    document.querySelector('.press_popup').classList.toggle('opened')
+                    document.documentElement.classList.add('overflow-hidden')
+                    //lenis.stop();
+                });
+            })
+
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('press_popup') || e.target.classList.contains('press_popup__closer')) {
+                    document.querySelector('.press_popup').classList.remove('opened');
+                    document.documentElement.classList.remove('overflow-hidden')
+                    //lenis.start();
+                }
+            })
+        },
     }
 }())

@@ -113,8 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             BURGER_BTN.addEventListener('click', () => {
-                BURGER_BTN.classList.toggle('active')
-                BURGER_BLOCK.classList.toggle('opened')
+                BURGER_BTN.classList.toggle('active');
+                BURGER_BLOCK.classList.toggle('opened');
+                HEADER_WR.classList.toggle('header_active');
 
                 document.documentElement.classList.toggle('overflow-hidden')
                 if (BURGER_BTN.classList.contains('active')) {

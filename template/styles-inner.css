@@ -17,9 +17,14 @@
         padding-top: 6.875rem;
     }
 }
+@media all and (max-width: 980px) {
+    .site-wrapper.inner_page_main .site-header__inner {
+        padding: 20px 0;
+    }
+}
 @media all and (max-width: 767px) {
     .site-wrapper.inner_page_main .site-header__inner {
-        padding: 30px 0;
+        padding: 15px 0;
     }
 }
 .site-wrapper.inner_page_main .site-header__logo .logo_red {
@@ -39,6 +44,11 @@
 }
 .site-wrapper.inner_page_main .site-header:not(.fixed).header_active .site-header__phone-item a {
     color: rgb(var(--white));
+}
+@media all and (max-width: 980px) {
+    .site-wrapper.inner_page_main .site-header:not(.fixed).header_active {
+        background: rgb(var(--accent-color));
+    }
 }
 .site-wrapper.inner_page_main .site-header:not(.fixed) .site-header__logo .logo_red {
     display: block;

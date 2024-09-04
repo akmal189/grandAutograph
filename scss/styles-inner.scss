@@ -16,8 +16,12 @@
 	}
 
 	.site-header__inner {
+		@media all and (max-width: 980px){
+			padding: 20px 0;
+		}
+
 		@media all and (max-width: 767px){
-			padding: 30px 0;
+			padding: 15px 0;
 		}
 	}
 
@@ -54,6 +58,10 @@
 
 			.site-header__phone-item a {
 				color: rgb(var(--white));
+			}
+
+			@media all and (max-width: 980px) {
+				background: rgb(var(--accent-color));
 			}
 		}
 

@@ -4160,7 +4160,7 @@ p {
         .site-header__logo a {
             display: inline-block;
             vertical-align: top;
-            max-width: 99px;
+            //max-width: 99px;
 
             img {
                 max-width: 100%;
@@ -4203,7 +4203,7 @@ p {
     @media all and (max-width: 767px){
 
         .site-header__logo a {
-            max-width: 80px;
+            //max-width: 80px;
         }
     }
 }

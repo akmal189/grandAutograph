@@ -2595,7 +2595,7 @@
 @media all and (max-width: 767px) {
     .afisha_center_page .announces-block__header .title {
         font-size: 24px;
-        margin-bottom: 30px;
+        margin-bottom: 0;
         width: 100%;
     }
 }

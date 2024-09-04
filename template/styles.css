@@ -5041,7 +5041,6 @@ p:last-child {
     .site-header.fixed .site-header__logo a {
         display: inline-block;
         vertical-align: top;
-        max-width: 99px;
     }
     .site-header.fixed .site-header__logo a img {
         max-width: 100%;
@@ -5073,12 +5072,6 @@ p:last-child {
         height: auto;
     }
 }
-@media all and (max-width: 767px) {
-    .site-header.fixed .site-header__logo a {
-        max-width: 80px;
-    }
-}
-
 @media all and (min-width: 1324px) {
     html {
         overflow: hidden;

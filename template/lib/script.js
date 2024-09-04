@@ -1232,5 +1232,204 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             })
         },
+        afishaSlider: function(){
+
+            const afishaBody = document.querySelectorAll('.afisha_center_page');
+
+            if(!afishaBody.length) return;
+
+            afishaBody.forEach((slider) => {
+                const sliderBlock = slider.querySelector('.swiper');
+                const prevBtn = slider.querySelector('.swiper-button-prev');
+                const nextBtn = slider.querySelector('.swiper-button-next');
+
+                const tabSlider = new Swiper('.afisha_slider_bottom', {
+                    slidesPerView: 3,
+                    loop: true,
+                    effect: 'slide',
+                    speed: 1000,
+                    spaceBetween: 20,
+                    navigation: {
+                        nextEl: `.${nextBtn.className}`,
+                        prevEl: `.${prevBtn.className}`,
+                    },
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 2,
+                            spaceBetween: 10
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 20
+                        },
+                        1441: {
+                            slidesPerView: 3,
+                            spaceBetween: 20
+                        }
+                    }
+                });
+            })
+
+            function setEqualHeight() {
+                var items = document.querySelectorAll('.announces-block__slider-item .item-title');
+                items.forEach(function (item) {
+                    item.style.height = 'auto';
+                });
+                var maxHeight = 0;
+                items.forEach(function (item) {
+                    if (item.offsetHeight > maxHeight) {
+                        maxHeight = item.offsetHeight;
+                    }
+                });
+                items.forEach(function (item) {
+                    item.style.height = maxHeight + 'px';
+                });
+            }
+
+            window.addEventListener('load', setEqualHeight);
+            window.addEventListener('resize', setEqualHeight);
+        },
+        afishaCalendar: function(){
+            const year = new Date().getFullYear();
+            const currentMonth = new Date().getMonth();
+            const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+            const monthNames = [
+                "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+            ];
+
+            const wrapper = document.querySelector(".calendar_main .wrapper");
+
+            if (!wrapper) return;
+
+            function generateCalendar() {
+                for (let month = 0; month < 12; month++) {
+                    const firstDateMonth = new Date(year, month, 1);
+                    const lastDateMonth = new Date(year, month + 1, 0);
+                    const firstDayOfWeek = firstDateMonth.getDay();
+                    let date = new Date(firstDateMonth);
+                    let weeks = [];
+                    let week = new Array(7).fill({ date: "" });
+
+                    for (let i = 0; i < firstDayOfWeek; i++) {
+                        week[i] = { date: "" };
+                    }
+
+                    while (date <= lastDateMonth) {
+                        if (date.getDay() === 0) {
+                            weeks.push(week);
+                            week = new Array(7).fill({ date: "" });
+                        }
+                        week[date.getDay()] = { date: date.getDate() };
+                        date.setDate(date.getDate() + 1);
+                    }
+                    weeks.push(week);
+
+                    const card = document.createElement("div");
+                    card.classList.add("card", "swiper-slide");
+
+                    if (month === currentMonth) {
+                        card.classList.add("active");
+                    }
+
+                    const cardInner = document.createElement("div");
+                    cardInner.classList.add("card_inner");
+
+                    const title = document.createElement("h2");
+                    title.classList.add("card--title");
+                    title.innerHTML = `<span class="index">${month + 1}.</span> ${monthNames[month]}`;
+                    cardInner.appendChild(title);
+
+                    const table = document.createElement("table");
+                    table.classList.add("calendar");
+
+                    const thead = document.createElement("thead");
+                    const tr = document.createElement("tr");
+
+                    days.forEach((day) => {
+                        const th = document.createElement("th");
+                        th.classList.add("calendar--day");
+                        th.textContent = day;
+                        tr.appendChild(th);
+                    });
+
+                    thead.appendChild(tr);
+                    table.appendChild(thead);
+
+                    const tbody = document.createElement("tbody");
+                    tbody.classList.add("calendar-body");
+
+                    weeks.forEach((week) => {
+                        const tr = document.createElement("tr");
+                        week.forEach((day) => {
+                            const td = document.createElement("td");
+                            td.textContent = day.date;
+                            td.dataset.date = `${year}-${month + 1}-${day.date}`;
+                            
+                            if (!day.date) {
+                                td.classList.add("empty-day"); // Добавляем класс пустым ячейкам
+                            } else {
+                                td.addEventListener("click", function() {
+                                    this.classList.toggle("selected");
+                                });
+                            }
+
+                            if (isToday(day, month)) {
+                                td.classList.add("today");
+                            }
+
+                            tr.appendChild(td);
+                        });
+                        tbody.appendChild(tr);
+                    });
+
+                    table.appendChild(tbody);
+                    cardInner.appendChild(table);
+                    card.appendChild(cardInner);
+                    wrapper.appendChild(card);
+                }
+            }
+
+            function isToday(day, month) {
+                const today = new Date();
+                return (
+                    day.date &&
+                    day.date === today.getDate() &&
+                    month === today.getMonth() &&
+                    year === today.getFullYear()
+                );
+            }
+
+            generateCalendar();
+
+            const calendarSlider = new Swiper('.container-calendar', {
+                slidesPerView: 2,
+                speed: 1000,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.calendar_top_title .swiper-button-next',
+                    prevEl: '.calendar_top_title .swiper-button-prev',
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 10
+                    },
+                    1340: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    1444: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    }
+                },
+                initialSlide: currentMonth
+            });
+        },
     }
 }())

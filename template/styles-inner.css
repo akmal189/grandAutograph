@@ -2324,6 +2324,8 @@
         -ms-flex: 0 0 318px;
             flex: 0 0 318px;
     padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
 }
 .contacts_page .contacts_block_left .title {
     padding-bottom: 50px;
